@@ -1,0 +1,347 @@
+.settings-page {
+  input::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+  .settings {
+    .account-settings-left {
+      background-color: #fff;
+      margin-right: 25px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      @media (min-width: 992px) {
+        flex: 0 0 22.666667%;
+        max-width: 22.666667%;
+      }
+      @media (max-width: 767.98px) {
+        margin: 0 auto 1.5em;
+      }
+      .profile-img {
+        position: relative;
+        img {
+          width: 155px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 1px solid $iconsColor;
+          &:last-child {
+            position: absolute;
+            width: 60px;
+            height: 58px;
+            border: none;
+            border: 1px solid $iconsColor;
+            top: 3%;
+            right: 50%;
+            left: 50%;
+            transform: translateX(15px);
+          }
+        }
+      }
+      h4 {
+        font-size: 18px;
+        a {
+          color: $iconsColor;
+          text-decoration: none !important;
+          transition: 0.3s ease;
+          &:hover {
+            color: #007bff;
+          }
+        }
+      }
+      ul {
+        li {
+          padding: 0.7em 0;
+          position: relative;
+          z-index: 1;
+          display: flex;
+          cursor: pointer;
+          align-items: center;
+          margin-bottom: 0.7em;
+          &.active {
+            background-color: $mainColor;
+            border-left: 6px solid #aab0ce;
+            border-top: none;
+            &::after {
+              position: absolute;
+              content: "";
+              top: 6px;
+              right: 0;
+              z-index: 2;
+              width: 0;
+              height: 0;
+              border-top: 17px solid transparent;
+              border-bottom: 17px solid transparent;
+              border-right: 25px solid #fff;
+            }
+            a {
+              color: #fff;
+            }
+            img {
+              filter: invert(0);
+            }
+          }
+          &.deactive {
+            border-top: 1px solid rgba(112, 112, 112, 0.25);
+            border-left: 6px solid transparent;
+            a {
+              color: #a7a6a6;
+            }
+            img {
+              filter: invert(35%);
+            }
+          }
+          a {
+            text-decoration: none !important;
+          }
+          img {
+            width: 13px;
+            margin: 0 8px;
+          }
+          &:nth-of-type(2) {
+            img {
+              width: 25px;
+            }
+          }
+        }
+      }
+    }
+    .account-settings-right {
+      background-color: #fff;
+      padding: 1.5em;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      @media (max-width: 479.98px) {
+        padding: 1em 1em;
+      }
+      .forms {
+        form {
+          background-color: #f7f5f5;
+          padding: 3em 4em;
+          border-radius: 7px;
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+          @media (max-width: 479.98px) {
+            padding: 1em 0.5em;
+          }
+          input.validate {
+            box-shadow: 0px 0px 10px green inset !important;
+          }
+          input.error {
+            box-shadow: 0px 0px 10px red inset !important;
+          }
+          .form-input {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5em;
+            .wrapper {
+              position: relative;
+              width: 100%;
+              &.chevronDown {
+                i {
+                  position: absolute;
+                  top: 14px;
+                  right: 40px;
+                  color: #5a5a5a;
+                  pointer-events: none;
+                }
+              }
+              .input-icon {
+                position: absolute;
+                left: 1px;
+                top: 1px;
+                background-color: #fbfbfb;
+                width: 40px;
+                height: 40px;
+                border-radius: 7px 0px 0px 7px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-right: 1px solid #d6d6d6;
+                pointer-events: none;
+                user-select: none;
+              }
+              .alert {
+                padding: 8px;
+                display: none;
+                margin: 5px 0;
+                p {
+                  margin: 0;
+                }
+              }
+              input {
+                width: 100%;
+                height: 42px;
+                padding: 0 3em;
+                border-radius: 7px;
+                box-shadow: 0 0px 20px rgba(0, 0, 0, 0.1);
+              }
+              &.upload-cv {
+                background-color: #fff;
+                width: 100%;
+                height: 260px;
+                position: relative;
+                border: 2px dashed #dcdcdc;
+                margin-left: auto;
+                .input-icon {
+                  background-color: unset;
+                  border-radius: 0;
+                  border-right: unset;
+                  width: 100%;
+                  height: 100%;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  user-select: none;
+                  pointer-events: none;
+                  z-index: 2;
+                  .flex-wrapper {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    img {
+                      width: 55px;
+                    }
+                    p {
+                      color: #a7a6a6;
+                      span {
+                        color: #007bff;
+                      }
+                      @media (max-width: 479.98px) {
+                        font-size: 14px;
+                      }
+                    }
+                  }
+                }
+                #image-tag {
+                  display: none;
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  z-index: 3;
+                  object-fit: cover;
+                }
+                .upload-input {
+                  cursor: pointer;
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  opacity: 0;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  z-index: 4;
+                }
+              }
+            }
+          }
+          .form-buttons {
+            .btn-edit,
+            .btn-edit-pass,
+            .btn-cancel {
+              width: 100%;
+              max-width: 170px;
+              height: 40px;
+              border-radius: 5px;
+              transition: 0.3s ease;
+              font-weight: bold;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .btn-edit,
+            .btn-edit-pass {
+              background-color: $iconsColor;
+              border: 1px solid $iconsColor;
+              color: #fff;
+              &:hover {
+                background-color: #213ab5;
+              }
+            }
+            .btn-cancel {
+              background-color: transparent;
+              border: 1.5px solid $iconsColor;
+              color: $mainColor;
+              &:hover {
+                color: #fff;
+                background-color: $mainColor;
+              }
+            }
+          }
+        }
+      }
+      .approve-account {
+        display: none;
+      }
+    }
+  }
+}
+// Start Media
+@media (max-width: 767.98px) {
+  .settings-page {
+    .settings {
+      .account-settings-left {
+        margin-right: auto !important;
+        margin-left: auto !important;
+      }
+      .account-settings-right {
+        .forms {
+          form {
+            .form-input {
+              .wrapper {
+                input {
+                  max-width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 479.98px) {
+  .settings-page {
+    .settings {
+      .account-settings-left {
+        .profile-img {
+          img {
+            width: 125px;
+            height: 125px;
+            &:last-child {
+              width: 50px;
+              height: 50px;
+            }
+          }
+        }
+      }
+      .account-settings-right {
+        form {
+          .form-input {
+            label {
+              font-size: 14px;
+            }
+            .wrapper {
+              .input-icon {
+                width: 33px;
+                height: 33px;
+                img {
+                  width: 16px;
+                }
+              }
+              input {
+                height: 35px;
+              }
+            }
+          }
+          .form-buttons {
+            .btn-edit,
+            .btn-cancel {
+              height: 32px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

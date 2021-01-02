@@ -1,0 +1,124 @@
+body.homePage,
+body.homeRtl {
+  .homeContentTop {
+    .profile {
+      .profileSttuf {
+        .text {
+          padding: 30px 10px 10px;
+        }
+        .numbers {
+          ul {
+            li {
+              &:not(:last-child) {
+                border-left: 1px solid #cac7c7;
+                border-right: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .fixedFilter {
+      .filters {
+        .filter {
+          ul {
+            li {
+              .spanOnActive {
+                left: 10px;
+                right: unset;
+              }
+            }
+          }
+        }
+      }
+    }
+    .homeContent {
+      .wrightAPost {
+        .header {
+          .images {
+            margin-left: 10px;
+          }
+        }
+      }
+      .posts {
+        .post {
+          .footer {
+            .l_icons {
+            }
+            .r_icons {
+              span {
+                margin-right: 5px;
+              }
+            }
+          }
+          .toggleCommnetsArea {
+            .comments {
+              .comment {
+                .commentContent {
+                  .replyToComment {
+                    form {
+                      .emojionearea {
+                        .emojionearea-button {
+                          left: 0;
+                          right: unset;
+                        }
+                        .emojionearea-picker {
+                          left: -14px;
+                          right: unset;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .wrightComment {
+              .flexSttuf {
+                form {
+                  .emojionearea {
+                    .emojionearea-button {
+                      left: 0;
+                      right: unset;
+                    }
+                    .emojionearea-picker {
+                      left: -14px;
+                      right: unset;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /* PopUp */
+  .popUp {
+    .postPopUp {
+      .popUpHeader {
+      }
+      .popUpContent {
+        .header {
+          form {
+            .emojionearea {
+              .emojionearea-button {
+                left: 0;
+                right: unset;
+              }
+              .emojionearea-picker {
+                left: -14px;
+                right: unset;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // Start wrightPost Button
+  .wrightPostFromButtom {
+    left: 150px;
+    right: unset;
+  }
+}

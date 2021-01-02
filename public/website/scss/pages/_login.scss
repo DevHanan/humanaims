@@ -1,0 +1,323 @@
+.login-page {
+  a {
+    text-decoration: none !important;
+  }
+  .login {
+    background-color: #fff;
+    @include mainBoxShadow;
+    width: 80%;
+    margin: 1em auto;
+    overflow-x: hidden;
+    text-align: start;
+    .left-box {
+      .box-content {
+        padding: 4em 2em 1.5em;
+        h2 {
+          font-size: 32px;
+          font-weight: 600;
+          color: $mainColor;
+          margin-bottom: 12px;
+        }
+        .sign {
+          color: #6b6b6b;
+        }
+        .seperator {
+          width: 75%;
+          background-color: rgba(112, 112, 112, 0.25);
+          margin-bottom: 40px;
+          margin-top: -10px;
+        }
+        form {
+          .alert {
+            padding: 8px;
+            display: none;
+            margin: -23px 0 10px;
+            p {
+              margin: 0;
+            }
+          }
+          input.validate {
+            box-shadow: 0px 0px 10px green inset !important;
+          }
+          input.error {
+            box-shadow: 0px 0px 10px red inset !important;
+          }
+        }
+        .form-one {
+          display: flex;
+          flex-direction: column;
+          label {
+            color: $mainColor;
+          }
+          label[for="password"] {
+            position: relative;
+            span {
+              cursor: pointer;
+              &.eye {
+                &::after {
+                  content: "\f06e";
+                  font-family: "Font Awesome 5 Free";
+                  font-weight: 900;
+                  position: absolute;
+                  top: 42px;
+                  right: 16px;
+                }
+              }
+              &.eye-slash {
+                &::after {
+                  content: "\f070";
+                  font-family: "Font Awesome 5 Free";
+                  font-weight: 900;
+                  position: absolute;
+                  top: 42px;
+                  right: 16px;
+                }
+              }
+            }
+          }
+          input {
+            height: 45px;
+            font-size: 17px;
+            font-family: $inputFont;
+            font-weight: 500;
+            border-radius: 3px;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+            color: rgba(0, 0, 0, 0.7);
+            margin-bottom: 30px;
+            outline: none;
+            padding: 20px;
+          }
+        }
+        .sign-button {
+          form {
+            .btn {
+              width: 100%;
+              height: 50px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: $iconsColor;
+              color: #fff;
+              font-size: 20px;
+              font-weight: 600;
+              border-radius: 4px;
+              margin-bottom: 0.7em;
+              text-decoration: none;
+              transition: 0.3s ease;
+              &:hover {
+                background-color: #213ab5;
+              }
+            }
+          }
+        }
+        .form-two {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          input[type="checkbox"] {
+            display: none !important;
+
+            &:checked + label {
+              &::after {
+                transform: scale(1) rotate(0deg);
+              }
+            }
+          }
+
+          label {
+            position: relative;
+            font-size: 14px;
+            font-weight: 400;
+            color: #707070;
+            cursor: pointer;
+            transition: 0.3s linear;
+
+            &::before {
+              content: "";
+              width: 20px;
+              height: 20px;
+              background-color: #eee;
+              border: 1px solid rgba(0, 0, 0, 0.25);
+              border-radius: 3px;
+              position: absolute;
+              left: -27px;
+            }
+
+            &::after {
+              font-family: "Font Awesome 5 Free";
+              content: "\f00c";
+              position: absolute;
+              font-weight: 900;
+              font-size: 0.938rem;
+              left: -27px;
+              width: 20px;
+              height: 20px;
+              background-color: $mainColor;
+              border: 1px solid $mainColor;
+              border-radius: 3px;
+              color: #fff;
+              text-align: center;
+              transform: scale(0) rotate(360deg);
+              transition: all 0.3s ease-in-out;
+            }
+          }
+        }
+        .forget {
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #595959;
+            text-decoration: none;
+            transition: 0.3s ease;
+            &:hover {
+              color: #007bff;
+            }
+          }
+        }
+      }
+      .create-account {
+        margin-top: 2em;
+        padding-top: 1em;
+        border-top: 1px solid rgba(112, 112, 112, 0.25);
+        p {
+          a {
+            transition: 0.3s ease;
+            text-decoration: none;
+            color: #2d3c80;
+            &:hover {
+              color: #007bff;
+            }
+          }
+        }
+      }
+    }
+
+    .right-box {
+      .login-background {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 100%;
+        .overlay {
+          @include overlay;
+          background-image: linear-gradient(153deg, #2d3c80 0%, #070e30 100%);
+          opacity: 0.44;
+        }
+        .background-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 1;
+        }
+        .logo-img {
+          position: absolute;
+          width: 185px;
+          height: 210px;
+          z-index: 3;
+        }
+        .chevron-r {
+          position: absolute;
+          left: -25px;
+          z-index: 4;
+          &::after {
+            content: "\f054";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 2rem;
+            color: #2d3c80;
+            background-color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Start Media
+@media (max-width: 1199.98px) {
+  .login-page {
+    .login {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+@media (max-width: 1091.98px) {
+  .login-page {
+    .login {
+      width: 100%;
+      margin: 0;
+      .left-box {
+        padding-bottom: 2em;
+      }
+    }
+  }
+}
+@media (max-width: 767.98px) {
+  .login-page {
+    .login {
+      // padding: 10px 0;
+      .right-box {
+        display: none;
+      }
+    }
+  }
+}
+@media (max-width: 575.98px) {
+  .login-page {
+    .login {
+      margin: 0;
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 479.98px) {
+  .login-page {
+    .login {
+      width: 100%;
+      margin: 0;
+      .left-box {
+        .box-content {
+          .form-two {
+            label {
+              font-size: 14px;
+              &::before {
+                width: 17px;
+                height: 17px;
+                left: -22px;
+              }
+              &::after {
+                width: 17px;
+                height: 17px;
+                left: -22px;
+                font-size: 0.738rem;
+              }
+            }
+          }
+          .forget {
+            max-width: 100%;
+            a {
+              font-size: 14px;
+            }
+          }
+        }
+        .create-account {
+          p {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}

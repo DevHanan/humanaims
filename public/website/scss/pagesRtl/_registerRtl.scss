@@ -1,0 +1,89 @@
+.register {
+  .left-box {
+    .box-content {
+      .form-one {
+        label {
+          i {
+            left: unset;
+            right: 8px;
+          }
+        }
+        label[for="password"] {
+          span {
+            &.eye {
+              &::after {
+                right: unset;
+                left: 16px;
+              }
+            }
+            &.eye-slash {
+              &::after {
+                right: unset;
+                left: 16px;
+              }
+            }
+          }
+        }
+        input {
+          &::placeholder {
+            text-align: right;
+          }
+        }
+      }
+      .form-two {
+        label {
+          &::before {
+            left: unset;
+            right: -27px;
+          }
+          &::after {
+            left: unset;
+            right: -27px;
+          }
+        }
+      }
+    }
+  }
+  .left-box-three {
+    .box-content-three {
+      .memberships {
+        .membership {
+          .membership-icon {
+            margin-right: unset;
+            margin-left: 10px;
+            &::before {
+              left: unset;
+              right: -30px;
+            }
+          }
+          .btn-choose {
+            margin-left: unset;
+            margin-right: auto;
+          }
+        }
+      }
+      .policy {
+        label {
+          &::before {
+            left: unset;
+            right: -27px;
+          }
+          &::after {
+            left: unset;
+            right: -27px;
+          }
+        }
+      }
+    }
+  }
+  .right-box {
+    .login-background {
+      .chevron-r {
+        right: -25px;
+        &::after {
+          content: "\f053";
+        }
+      }
+    }
+  }
+}

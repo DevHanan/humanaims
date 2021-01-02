@@ -1,0 +1,60 @@
+.navContainer {
+  .uppernav {
+    .language {
+      button {
+        span.ball.English {
+          right: unset;
+          left: 1px;
+        }
+        span.ball.Arabic {
+          left: unset;
+          right: 1px;
+        }
+      }
+    }
+  }
+  .myNav {
+    .navigators {
+      li {
+        &:not(:last-child) {
+          border-left: 1px solid #b3a8e7;
+          border-right: none;
+        }
+        a.number {
+          span {
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .navContainer {
+    .uppernav {
+      .language {
+        span.ar {
+          font-size: 10px;
+        }
+        button {
+          span.ball.English {
+            left: 1px;
+          }
+          span.ball.Arabic {
+            right: 1px;
+          }
+        }
+        span.en {
+          font-size: 10px;
+        }
+      }
+      .social {
+        li {
+          margin: 0 3px;
+          span {
+          }
+        }
+      }
+    }
+  }
+}

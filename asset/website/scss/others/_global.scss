@@ -1,0 +1,196 @@
+// Start Global Rules
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+html {
+  overflow-x: hidden;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: $mainBackground;
+  overflow-x: hidden;
+}
+a {
+  &:hover {
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+}
+input {
+  font-family: $inputFont;
+  text-align: start !important;
+}
+button {
+  outline: none !important;
+}
+/* End Global Rules */
+/* Start Loading Overlay */
+.loading {
+  font-family: "Acme", sans-serif;
+  background-color: $mainColor;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+
+  img {
+    width: 125px;
+    object-fit: cover;
+    margin: 0 auto 25px;
+  }
+
+  .loading-wrapper {
+    position: relative;
+    -webkit-box-reflect: below -24px linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+  }
+  span {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    font-size: 2rem;
+    &.spn-loading {
+      position: relative;
+      display: inline-block;
+      color: #fff;
+      font-size: 2rem;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      animation: loading 1.5s ease-in-out infinite;
+      animation-delay: calc(0.1s * var(--i));
+    }
+  }
+}
+/* End Loading Overlay */
+
+// Start wrightPost Button
+.wrightPostFromButtom {
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 50px;
+  right: 150px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  cursor: pointer;
+  transition: all 0.5s linear;
+  border: 3px solid #75757f;
+  @media (max-width: 1200px) {
+    right: 0;
+  }
+  i {
+    transition: all 0.2s linear;
+    color: #75757f;
+    font-size: 20px;
+  }
+  &:hover {
+    border: 3px solid #0606b2;
+    i {
+      color: #0606b2;
+    }
+  }
+}
+// End wrightPost Button
+
+/*Start ScrollUp Button*/
+.scrollUp {
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  z-index: 50;
+  padding: 1.5em;
+  cursor: pointer;
+  display: none;
+  i {
+    font-size: 20px;
+    color: #fff;
+    background-color: $mainColor;
+    border-radius: 50%;
+    padding: 0.5em;
+    transition: all 0.3s ease;
+    box-shadow: 4px 0 20px -5px rgba(0, 0, 0, 0.5);
+  }
+  &:hover {
+    i {
+      background-color: #2a4cc5;
+      box-shadow: 4px 0 20px -5px rgba(0, 0, 0, 1);
+    }
+  }
+}
+/*End ScrollUp Button*/
+
+// Start Scroll Bar
+@media (min-width: 992px) {
+  // FireFox
+  .scroller {
+    overflow-y: scroll;
+    scrollbar-color: $mainColor transparent;
+    scrollbar-width: thin;
+  }
+  // Google Chrome, Safari, Opera, Android
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $mainBackground;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $mainColor;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $mainColor;
+  }
+  // End Scroll Bar
+}
+
+// Start Framework
+.ltr {
+  font-family: $mainEnglishFont;
+}
+.rtl {
+  font-family: $mainArabicFont;
+}
+.main-color {
+  color: $mainColor !important;
+}
+.main-background {
+  background-color: $mainColor !important;
+}
+.white {
+  color: #fff;
+}
+.show {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+}
+.overlay {
+  @include overlay;
+}
+// End Framework

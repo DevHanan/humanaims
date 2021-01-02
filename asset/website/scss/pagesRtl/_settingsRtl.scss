@@ -1,0 +1,62 @@
+.settings-page {
+  .settings {
+    .account-settings-left {
+      margin-right: 0;
+      margin-left: 25px;
+      .profile-img {
+        img {
+          &:last-child {
+            transform: translateX(75px);
+          }
+        }
+      }
+      ul {
+        li {
+          &.active {
+            border-left: unset;
+            border-right: 6px solid #aab0ce;
+            &::after {
+              right: unset;
+              left: 0;
+              border-right: unset;
+              border-left: 25px solid #fff;
+            }
+          }
+          .deactive {
+            border-right: unset;
+            border-right: 6px solid transparent;
+          }
+        }
+      }
+    }
+    .account-settings-right {
+      .forms {
+        form {
+          .form-input {
+            .wrapper {
+              &.chevronDown {
+                i {
+                  right: unset;
+                  left: 22px;
+                }
+              }
+              .input-icon {
+                left: unset;
+                right: 1px;
+                border-radius: 0 7px 7px 0;
+              }
+              &.upload-cv {
+                margin-left: 0;
+                margin-right: auto;
+                .input-icon {
+                  right: unset;
+                  left: 50%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

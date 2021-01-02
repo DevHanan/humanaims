@@ -1,0 +1,545 @@
+/* Start Loading Animation */
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  20% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  40% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes loading {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  20% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  40% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+/* End Loading Animation */
+/* Start Custom Video Animation */
+@-webkit-keyframes playButton {
+  0% {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 5rem;
+    background-color: #000;
+    opacity: 1;
+  }
+  25% {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 6rem;
+    background-color: #000;
+    opacity: 0.75;
+  }
+  50% {
+    width: 110px;
+    height: 110px;
+    line-height: 110px;
+    font-size: 7rem;
+    background-color: #000;
+    opacity: 0.5;
+  }
+  75% {
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    font-size: 8rem;
+    background-color: #000;
+    opacity: 0.25;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    font-size: 9rem;
+    background-color: #000;
+    opacity: 0;
+  }
+}
+@keyframes playButton {
+  0% {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 5rem;
+    background-color: #000;
+    opacity: 1;
+  }
+  25% {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 6rem;
+    background-color: #000;
+    opacity: 0.75;
+  }
+  50% {
+    width: 110px;
+    height: 110px;
+    line-height: 110px;
+    font-size: 7rem;
+    background-color: #000;
+    opacity: 0.5;
+  }
+  75% {
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    font-size: 8rem;
+    background-color: #000;
+    opacity: 0.25;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    font-size: 9rem;
+    background-color: #000;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes pauseButton {
+  0% {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 5rem;
+    background-color: #000;
+    opacity: 1;
+  }
+  25% {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 6rem;
+    background-color: #000;
+    opacity: 0.75;
+  }
+  50% {
+    width: 110px;
+    height: 110px;
+    line-height: 110px;
+    font-size: 7rem;
+    background-color: #000;
+    opacity: 0.5;
+  }
+  75% {
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    font-size: 8rem;
+    background-color: #000;
+    opacity: 0.25;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    font-size: 9rem;
+    background-color: #000;
+    opacity: 0;
+  }
+}
+@keyframes pauseButton {
+  0% {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 5rem;
+    background-color: #000;
+    opacity: 1;
+  }
+  25% {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 6rem;
+    background-color: #000;
+    opacity: 0.75;
+  }
+  50% {
+    width: 110px;
+    height: 110px;
+    line-height: 110px;
+    font-size: 7rem;
+    background-color: #000;
+    opacity: 0.5;
+  }
+  75% {
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    font-size: 8rem;
+    background-color: #000;
+    opacity: 0.25;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    font-size: 9rem;
+    background-color: #000;
+    opacity: 0;
+  }
+}
+/* End Custom Video Animation */
+*,
+body {
+  text-align: start;
+}
+
+.arabic-page .loading .loading-wrapper {
+  -webkit-box-reflect: unset;
+}
+.arabic-page .loading .loading-wrapper span.spn-loading {
+  -webkit-box-reflect: below -24px linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+}
+
+.login-page .login .right-box .login-background .chevron-r {
+  right: -25px;
+}
+.login-page .login .right-box .login-background .chevron-r::after {
+  content: "\f053";
+}
+.login-page .login .left-box .box-content .form-one label[for="password"] span.eye::after {
+  right: unset;
+  left: 16px;
+}
+.login-page .login .left-box .box-content .form-one label[for="password"] span.eye-slash::after {
+  right: unset;
+  left: 16px;
+}
+.login-page .login .left-box .box-content .form-two label::before {
+  right: -27px;
+}
+.login-page .login .left-box .box-content .form-two label::after {
+  right: -27px;
+}
+
+.register .left-box .box-content .form-one label i {
+  left: unset;
+  right: 8px;
+}
+.register .left-box .box-content .form-one label[for="password"] span.eye::after {
+  right: unset;
+  left: 16px;
+}
+.register .left-box .box-content .form-one label[for="password"] span.eye-slash::after {
+  right: unset;
+  left: 16px;
+}
+.register .left-box .box-content .form-one input::-webkit-input-placeholder {
+  text-align: right;
+}
+.register .left-box .box-content .form-one input:-ms-input-placeholder {
+  text-align: right;
+}
+.register .left-box .box-content .form-one input::-ms-input-placeholder {
+  text-align: right;
+}
+.register .left-box .box-content .form-one input::placeholder {
+  text-align: right;
+}
+.register .left-box .box-content .form-two label::before {
+  left: unset;
+  right: -27px;
+}
+.register .left-box .box-content .form-two label::after {
+  left: unset;
+  right: -27px;
+}
+.register .left-box-three .box-content-three .memberships .membership .membership-icon {
+  margin-right: unset;
+  margin-left: 10px;
+}
+.register .left-box-three .box-content-three .memberships .membership .membership-icon::before {
+  left: unset;
+  right: -30px;
+}
+.register .left-box-three .box-content-three .memberships .membership .btn-choose {
+  margin-left: unset;
+  margin-right: auto;
+}
+.register .left-box-three .box-content-three .policy label::before {
+  left: unset;
+  right: -27px;
+}
+.register .left-box-three .box-content-three .policy label::after {
+  left: unset;
+  right: -27px;
+}
+.register .right-box .login-background .chevron-r {
+  right: -25px;
+}
+.register .right-box .login-background .chevron-r::after {
+  content: "\f053";
+}
+
+body.homePage,
+body.homeRtl {
+  /* PopUp */
+}
+body.homePage .homeContentTop .profile .profileSttuf .text,
+body.homeRtl .homeContentTop .profile .profileSttuf .text {
+  padding: 30px 10px 10px;
+}
+body.homePage .homeContentTop .profile .profileSttuf .numbers ul li:not(:last-child),
+body.homeRtl .homeContentTop .profile .profileSttuf .numbers ul li:not(:last-child) {
+  border-left: 1px solid #cac7c7;
+  border-right: none;
+}
+body.homePage .homeContentTop .fixedFilter .filters .filter ul li .spanOnActive,
+body.homeRtl .homeContentTop .fixedFilter .filters .filter ul li .spanOnActive {
+  left: 10px;
+  right: unset;
+}
+body.homePage .homeContentTop .homeContent .wrightAPost .header .images,
+body.homeRtl .homeContentTop .homeContent .wrightAPost .header .images {
+  margin-left: 10px;
+}
+body.homePage .homeContentTop .homeContent .posts .post .footer .r_icons span,
+body.homeRtl .homeContentTop .homeContent .posts .post .footer .r_icons span {
+  margin-right: 5px;
+}
+body.homePage .homeContentTop .homeContent .posts .post .toggleCommnetsArea .comments .comment .commentContent .replyToComment form .emojionearea .emojionearea-button,
+body.homeRtl .homeContentTop .homeContent .posts .post .toggleCommnetsArea .comments .comment .commentContent .replyToComment form .emojionearea .emojionearea-button {
+  left: 0;
+  right: unset;
+}
+body.homePage .homeContentTop .homeContent .posts .post .toggleCommnetsArea .comments .comment .commentContent .replyToComment form .emojionearea .emojionearea-picker,
+body.homeRtl .homeContentTop .homeContent .posts .post .toggleCommnetsArea .comments .comment .commentContent .replyToComment form .emojionearea .emojionearea-picker {
+  left: -14px;
+  right: unset;
+}
+body.homePage .homeContentTop .homeContent .posts .post .toggleCommnetsArea .wrightComment .flexSttuf form .emojionearea .emojionearea-button,
+body.homeRtl .homeContentTop .homeContent .posts .post .toggleCommnetsArea .wrightComment .flexSttuf form .emojionearea .emojionearea-button {
+  left: 0;
+  right: unset;
+}
+body.homePage .homeContentTop .homeContent .posts .post .toggleCommnetsArea .wrightComment .flexSttuf form .emojionearea .emojionearea-picker,
+body.homeRtl .homeContentTop .homeContent .posts .post .toggleCommnetsArea .wrightComment .flexSttuf form .emojionearea .emojionearea-picker {
+  left: -14px;
+  right: unset;
+}
+body.homePage .popUp .postPopUp .popUpContent .header form .emojionearea .emojionearea-button,
+body.homeRtl .popUp .postPopUp .popUpContent .header form .emojionearea .emojionearea-button {
+  left: 0;
+  right: unset;
+}
+body.homePage .popUp .postPopUp .popUpContent .header form .emojionearea .emojionearea-picker,
+body.homeRtl .popUp .postPopUp .popUpContent .header form .emojionearea .emojionearea-picker {
+  left: -14px;
+  right: unset;
+}
+body.homePage .wrightPostFromButtom,
+body.homeRtl .wrightPostFromButtom {
+  left: 150px;
+  right: unset;
+}
+
+.doctorsPage .doctorsContent .fixedFilter .filters .filter ul li .spanOnActive,
+.doctorsRtl .doctorsContent .fixedFilter .filters .filter ul li .spanOnActive,
+.userspage .doctorsContent .fixedFilter .filters .filter ul li .spanOnActive,
+.usersRtl .doctorsContent .fixedFilter .filters .filter ul li .spanOnActive {
+  left: 10px;
+  right: unset;
+}
+
+body.massengerPage .messenger-popup .popup-wrapper .rating,
+body.massengerRtl .messenger-popup .popup-wrapper .rating {
+  direction: ltr;
+  text-align: left;
+}
+body.massengerPage .massengerContent .massenger,
+body.massengerRtl .massengerContent .massenger {
+  background: #fff;
+}
+body.massengerPage .massengerContent .massenger .row .col-lg-8 .chat .talk .item .text p,
+body.massengerRtl .massengerContent .massenger .row .col-lg-8 .chat .talk .item .text p {
+  border-radius: 15px 0 15px 15px;
+}
+body.massengerPage .massengerContent .massenger .row .col-lg-8 .chat .talk .item .text p:after,
+body.massengerRtl .massengerContent .massenger .row .col-lg-8 .chat .talk .item .text p:after {
+  right: -19px;
+  left: unset;
+  border-color: transparent transparent transparent #f1f3f4;
+}
+body.massengerPage .massengerContent .massenger .row .col-lg-8 .chat .talk .receiver .item .text p,
+body.massengerRtl .massengerContent .massenger .row .col-lg-8 .chat .talk .receiver .item .text p {
+  border-radius: 0 15px 15px 15px;
+}
+body.massengerPage .massengerContent .massenger .row .col-lg-8 .chat .talk .receiver .item .text p:after,
+body.massengerRtl .massengerContent .massenger .row .col-lg-8 .chat .talk .receiver .item .text p:after {
+  left: -20px;
+  right: unset;
+  border-color: transparent #f1f3f4 transparent transparent;
+}
+body.massengerPage .massengerContent .massenger .row .col-lg-8 .chat form .text .emojionearea .emojionearea-button,
+body.massengerRtl .massengerContent .massenger .row .col-lg-8 .chat form .text .emojionearea .emojionearea-button {
+  left: 0;
+  right: unset;
+}
+body.massengerPage .massengerContent .massenger .row .col-lg-8 .chat form .text .emojionearea .emojionearea-picker,
+body.massengerRtl .massengerContent .massenger .row .col-lg-8 .chat form .text .emojionearea .emojionearea-picker {
+  left: -14px;
+  right: unset;
+}
+
+.profile-body .emoji-picker-icon {
+  right: unset;
+  left: 10px;
+}
+.profile-body .emoji-menu {
+  right: unset;
+  left: 0;
+}
+.profile-body .profile .profile-cover .cover_img .edit {
+  right: unset;
+  left: 30px;
+}
+.profile-body .profile .profile-cover .cover_img .edit_menu {
+  right: unset;
+  left: 15px;
+}
+.profile-body .profile .profile-cover .cover_img .edit_menu li {
+  text-align: center;
+}
+.profile-body .profile .profile-cover .profile_img {
+  left: unset;
+  right: 80px;
+}
+.profile-body .profile .profile-cover .profile_img p {
+  right: unset;
+  left: -165px;
+}
+@media (max-width: 479.98px) {
+  .profile-body .profile .profile-cover .profile_img p {
+    left: -140px;
+  }
+}
+.profile-body .profile .profile-cover .profile_img .edit_menu li {
+  text-align: center;
+}
+.profile-body .profile .profile-content .diaries .homeContent .wrightAPost .header form input::-webkit-input-placeholder {
+  direction: rtl;
+}
+.profile-body .profile .profile-content .diaries .homeContent .wrightAPost .header form input:-ms-input-placeholder {
+  direction: rtl;
+}
+.profile-body .profile .profile-content .diaries .homeContent .wrightAPost .header form input::-ms-input-placeholder {
+  direction: rtl;
+}
+.profile-body .profile .profile-content .diaries .homeContent .wrightAPost .header form input::placeholder {
+  direction: rtl;
+}
+.profile-body .profile .profile-content .diaries .homeContent .posts .post .header .icons .fa-share {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.settings-page .settings .account-settings-left {
+  margin-right: 0;
+  margin-left: 25px;
+}
+.settings-page .settings .account-settings-left .profile-img img:last-child {
+  -webkit-transform: translateX(75px);
+          transform: translateX(75px);
+}
+.settings-page .settings .account-settings-left ul li.active {
+  border-left: unset;
+  border-right: 6px solid #aab0ce;
+}
+.settings-page .settings .account-settings-left ul li.active::after {
+  right: unset;
+  left: 0;
+  border-right: unset;
+  border-left: 25px solid #fff;
+}
+.settings-page .settings .account-settings-left ul li .deactive {
+  border-right: unset;
+  border-right: 6px solid transparent;
+}
+.settings-page .settings .account-settings-right .forms form .form-input .wrapper.chevronDown i {
+  right: unset;
+  left: 22px;
+}
+.settings-page .settings .account-settings-right .forms form .form-input .wrapper .input-icon {
+  left: unset;
+  right: 1px;
+  border-radius: 0 7px 7px 0;
+}
+.settings-page .settings .account-settings-right .forms form .form-input .wrapper.upload-cv {
+  margin-left: 0;
+  margin-right: auto;
+}
+.settings-page .settings .account-settings-right .forms form .form-input .wrapper.upload-cv .input-icon {
+  right: unset;
+  left: 50%;
+}
+
+.navContainer .uppernav .language button span.ball.English {
+  right: unset;
+  left: 1px;
+}
+.navContainer .uppernav .language button span.ball.Arabic {
+  left: unset;
+  right: 1px;
+}
+.navContainer .myNav .navigators li:not(:last-child) {
+  border-left: 1px solid #b3a8e7;
+  border-right: none;
+}
+.navContainer .myNav .navigators li a.number span {
+  top: 0;
+}
+
+@media (max-width: 500px) {
+  .navContainer .uppernav .language span.ar {
+    font-size: 10px;
+  }
+  .navContainer .uppernav .language button span.ball.English {
+    left: 1px;
+  }
+  .navContainer .uppernav .language button span.ball.Arabic {
+    right: 1px;
+  }
+  .navContainer .uppernav .language span.en {
+    font-size: 10px;
+  }
+  .navContainer .uppernav .social li {
+    margin: 0 3px;
+  }
+}
+footer .container .row > div h2:after {
+  content: "";
+  left: unset;
+  right: 0;
+}
+footer .copyRight p {
+  text-align: center;
+}
+
+/*# sourceMappingURL=mainRtl.css.map */

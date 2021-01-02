@@ -1,0 +1,461 @@
+body.massengerPage,
+body.massengerRtl {
+  .messenger-popup {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    .popup-wrapper {
+      position: relative;
+      background-color: #fff;
+      width: 530px;
+      max-width: 100%;
+      height: 430px;
+      max-height: 100%;
+      margin: auto;
+      border-radius: 8px;
+      @include flexCenter;
+      #closePopup {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 4;
+        width: 40px;
+        height: 40px;
+        border-radius: 0 7px;
+        background-color: $mainColor;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          color: red;
+        }
+      }
+      .rate-box {
+        box-shadow: 0px 3px 6px #0000000d;
+        border-radius: 5px;
+        height: 86px;
+      }
+      .rating {
+        width: 100%;
+        direction: rtl; // Rtl
+        text-align: right;
+      }
+      .star {
+        position: relative;
+        display: inline-block;
+        transition: color 0.2s ease;
+        color: #ebebeb;
+        cursor: pointer;
+      }
+      .star:before {
+        content: "\2605";
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
+      }
+      .star:hover,
+      .star.selected,
+      .star:hover ~ .star,
+      .star.selected ~ .star {
+        transition: color 0.3s ease;
+        color: rgba(0, 0, 0, 0.5);
+      }
+      .star.selected,
+      .star.selected ~ .star {
+        color: $mainColor;
+      }
+      form {
+        @include flexCenter;
+        input {
+          background-color: $mainColor;
+          color: #fff;
+          border-radius: 23px;
+          width: 232px;
+          height: 46px;
+          @include buttonsHover;
+        }
+      }
+    }
+  }
+  .massengerContent {
+    margin: 20px 0 50px;
+    .massenger {
+      background: #fff;
+      .row {
+        .col-lg-4 {
+          padding: 0;
+          .friends {
+            padding: 15px;
+            background: #fff;
+            box-shadow: 0 0 10px #0009;
+            max-height: 600px;
+            overflow-y: scroll;
+            form {
+              padding: 10px 0;
+              margin: 0 0 15px 0;
+              .search {
+                display: flex;
+                background-color: #dcdcdc;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.22);
+                height: 34px;
+                input {
+                  color: #868686;
+                  flex-grow: 1;
+                  border: none;
+                  background: none;
+                  outline: none;
+                }
+                button {
+                  background: none;
+                  border: none;
+                  text-align: center;
+                  i {
+                    color: #868686;
+                  }
+                }
+              }
+            }
+            ul {
+              li.item {
+                margin: 10px 0;
+                padding: 10px;
+                box-shadow: 0 4px 11px 0px rgba(0, 0, 0, 0.3);
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                .image {
+                  position: relative;
+                  width: 60px;
+                  height: 60px;
+                  flex-shrink: 0;
+                  margin: 0 10px;
+                  img:first-child {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    border: 3px solid $mainColor;
+                    object-fit: cover;
+                  }
+                }
+                .content {
+                  flex-grow: 1;
+                  .right {
+                    display: flex;
+                    justify-content: space-between;
+                    a {
+                      color: $mainColor;
+                    }
+                    .time {
+                      span {
+                        color: gray;
+                      }
+                      i {
+                        color: gray;
+                      }
+                    }
+                  }
+                  p.text {
+                    color: gray;
+                    margin: 0 0 10px 0;
+                    font-size: 15px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .col-lg-8 {
+          padding: 0;
+          .chat {
+            max-height: 600px;
+            min-height: 600px;
+            background: #fff;
+            overflow-y: scroll;
+            .header {
+              background: #fff;
+              padding: 15px;
+              box-shadow: 0 0 10px #0009;
+              .row {
+                justify-content: space-between;
+                align-items: center;
+                .imageName {
+                  display: flex;
+                  align-items: center;
+                  .image {
+                    width: 65px;
+                    height: 65px;
+                    position: relative;
+                    flex-shrink: 0;
+                    img:first-child {
+                      width: 100%;
+                      height: 100%;
+                      border-radius: 50%;
+                      border: 3px solid $mainColor;
+                      object-fit: cover;
+                    }
+                    img:last-child {
+                      position: absolute;
+                      top: 0;
+                      right: 0;
+                    }
+                  }
+                  .name {
+                    flex-grow: 1;
+                    a {
+                      color: $mainColor;
+                      margin: 0 10px;
+                      &:hover {
+                        text-decoration: underline;
+                      }
+                    }
+                  }
+                }
+                .beginChatting {
+                  background: $mainColor;
+                  border-radius: 20px;
+                  color: #fff;
+                  display: flex;
+                  padding: 5px;
+                  cursor: pointer;
+                  width: 85%;
+                  margin: 0 auto;
+                  button {
+                    flex-grow: 1;
+                    background: $mainColor;
+                    border-radius: 20px;
+                    color: #fff;
+                    border: none;
+                    outline: none;
+                    text-align: center !important;
+                  }
+                  .chatImage {
+                    background: #fff;
+                    padding: 5px;
+                    border-radius: 50%;
+                  }
+                }
+              }
+            }
+            .talk {
+              height: 435px;
+              padding: 15px;
+              .item {
+                display: flex;
+                margin: 20px 0;
+                .image {
+                  width: 65px;
+                  height: 65px;
+                  position: relative;
+                  flex-shrink: 0;
+                  margin: 0 20px;
+                  img:first-child {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    border: 3px solid $mainColor;
+                    object-fit: cover;
+                  }
+                  img:last-child {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                  }
+                }
+                .text {
+                  flex-grow: 1;
+                  padding-top: 20px;
+                  p {
+                    margin: 0;
+                    background: #f1f3f4;
+                    padding: 10px;
+                    width: fit-content;
+                    border-radius: 0 15px 15px 15px;
+                    position: relative;
+                    &:after {
+                      content: "";
+                      position: absolute;
+                      top: 0;
+                      left: -19px; /*RTL*/
+                      border-width: 10px;
+                      border-style: solid;
+                      border-color: transparent #f1f3f4 transparent transparent; /*RTL*/
+                    }
+                  }
+                  span {
+                    color: gray;
+                  }
+                }
+              }
+              .sender {
+              }
+              .receiver {
+                .item {
+                  .text {
+                    p {
+                      border-radius: 15px 0 15px 15px;
+                      &:after {
+                        content: "";
+                        right: -20px; /*RTL*/
+                        left: unset;
+                        border-color: transparent transparent transparent
+                          #f1f3f4; /*RTL*/
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            form {
+              width: 95%;
+              margin: 15px auto;
+              display: flex;
+              .text {
+                flex-grow: 1;
+                width: 90%;
+                display: flex;
+                background-color: #f1f3f4;
+                align-items: center;
+                border-radius: 20px;
+                &.disabledInput {
+                  pointer-events: none;
+                  user-select: none;
+                }
+                .emojy_container {
+                  width: 100%;
+                  flex-grow: 1;
+                  position: relative;
+                  .emoji-wysiwyg-editor {
+                    color: #3a3a3a;
+                    background-color: #f1f3f4;
+                    border: none;
+                    outline: none;
+                    box-shadow: none;
+                    height: 40px !important;
+                  }
+                  .emoji-menu {
+                    top: -200px;
+                  }
+                }
+                ul {
+                  width: 15%;
+                  display: flex;
+                  justify-content: space-around;
+                  align-items: center;
+                  flex-shrink: 0;
+                  li {
+                    i {
+                      color: #2f3c7e4a;
+                      cursor: pointer;
+                      transition: all 0.2s linear;
+                      &:hover {
+                        color: #918f8f;
+                      }
+                    }
+                  }
+                }
+              }
+              button {
+                margin: 0 10px;
+                width: 40px;
+                height: 40px;
+                background: $mainColor;
+                border-radius: 50%;
+                border: none;
+                outline: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &.disabledButton {
+                  pointer-events: none;
+                  user-select: none;
+                }
+                img {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 1165px) {
+  body.massengerPage,
+  body.massengerPage {
+    .massengerContent {
+      .massenger {
+        .friends {
+          .item {
+            .image {
+              img:first-child {
+              }
+            }
+            .content {
+              .right {
+                a {
+                  font-size: 13px;
+                }
+              }
+              p.text {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+        .chat {
+        }
+      }
+    }
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  body.massengerPage,
+  body.massengerRtl {
+    .massengerContent {
+      .massenger {
+        .row {
+          .col-lg-4 {
+            padding: 0 15px;
+            margin-bottom: 15px;
+          }
+          .col-lg-8 {
+            .chat {
+              .header {
+                .row {
+                  .imageName {
+                    width: 80%;
+                    margin: 20px auto;
+                  }
+                  .beginChatting {
+                    width: 85%;
+                    .chatImage {
+                    }
+                  }
+                }
+              }
+              form {
+                .text {
+                  ul {
+                    width: 30%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

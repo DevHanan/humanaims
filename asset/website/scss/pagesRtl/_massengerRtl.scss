@@ -1,0 +1,65 @@
+body.massengerPage,
+body.massengerRtl {
+  .messenger-popup {
+    .popup-wrapper {
+      .rating {
+        direction: ltr;
+        text-align: left;
+      }
+    }
+  }
+  .massengerContent {
+    .massenger {
+      background: #fff;
+      .row {
+        .col-lg-8 {
+          .chat {
+            .talk {
+              .item {
+                .text {
+                  p {
+                    border-radius: 15px 0 15px 15px;
+                    &:after {
+                      right: -19px;
+                      left: unset;
+                      border-color: transparent transparent transparent #f1f3f4;
+                    }
+                  }
+                }
+              }
+              .receiver {
+                .item {
+                  .text {
+                    p {
+                      border-radius: 0 15px 15px 15px;
+                      &:after {
+                        left: -20px;
+                        right: unset;
+                        border-color: transparent #f1f3f4 transparent
+                          transparent;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            form {
+              .text {
+                .emojionearea {
+                  .emojionearea-button {
+                    left: 0;
+                    right: unset;
+                  }
+                  .emojionearea-picker {
+                    left: -14px;
+                    right: unset;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

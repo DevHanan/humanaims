@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="PHP_CodeSniffer">
+	<description>Coding standard for Laravel Comments.</description>
+    <file>src/Contracts</file>
+    <file>src/Eloquent</file>
+    <file>src/Events</file>
+    <file>src/Providers</file>
+	<arg value="np"/>
+	<rule ref="PSR2"/>
+	<rule ref="Squiz.Commenting.FunctionComment" />
+	<rule ref="Squiz.Commenting.FunctionCommentThrowTag" />
+	<rule ref="Squiz.Commenting.ClassComment" />
+</ruleset>

@@ -1,0 +1,21 @@
+.doctorsPage,
+.doctorsRtl,
+.userspage,
+.usersRtl {
+  .doctorsContent {
+    .fixedFilter {
+      .filters {
+        .filter {
+          ul {
+            li {
+              .spanOnActive {
+                left: 10px;
+                right: unset;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

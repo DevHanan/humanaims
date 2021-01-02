@@ -1,0 +1,119 @@
+body.termsPage,
+body.termsRtl {
+  background: #fff;
+  .termsContent {
+    .header {
+      height: 600px;
+      position: relative;
+      margin: 0 0 50px 0;
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+      p {
+        text-align: right;
+        position: absolute;
+        width: 70%;
+        top: 30%;
+        right: 8%;
+        color: #fff;
+        border-right: 4px solid #fff; /* RTL */
+        padding-right: 5px; /* RTL */
+        margin: 0;
+      }
+    }
+    .subHeader {
+      span.head {
+        color: #333;
+        display: block;
+        margin: 10px 0;
+        text-align: center !important;
+        font-size: 25px;
+        font-weight: bold;
+      }
+      .underLine {
+        @include underline;
+        justify-content: center;
+        width: 100%;
+        .line {
+          @include upline;
+          width: 10%;
+        }
+      }
+    }
+    .whoWeAre {
+      margin: 50px 0;
+      .content {
+        padding: 15px;
+        .image {
+          position: relative;
+          margin-bottom: 20px;
+          img:first-child {
+            width: 100%;
+            height: 300px;
+          }
+          img:last-child {
+            width: 40%;
+            height: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+        .text {
+          p {
+            color: gray;
+            line-height: 2;
+          }
+        }
+      }
+    }
+    .tremsAndConditions {
+      margin: 50px 0;
+      .item {
+        margin: 15px 0;
+        .col-2 {
+          padding-right: 0; /* RTL */
+          .icon {
+            img {
+              width: 80%;
+            }
+          }
+        }
+        .text {
+          .subSubHeader {
+            span.head {
+              color: #333;
+              display: block;
+              margin: 10px 0;
+              font-size: 25px;
+              font-weight: bold;
+            }
+            .underLine {
+              @include underline;
+              .line {
+                @include upline;
+              }
+            }
+          }
+          p {
+            color: gray;
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+    .privacyPolicy {
+      margin: 50px 0;
+      p {
+        margin: 20px 0;
+        color: gray;
+        line-height: 2.3;
+      }
+    }
+  }
+}

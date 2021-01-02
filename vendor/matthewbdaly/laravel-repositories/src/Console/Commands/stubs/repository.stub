@@ -1,0 +1,15 @@
+<?php
+
+namespace DummyNamespace;
+
+use Matthewbdaly\LaravelRepositories\Repositories\Base;
+use DummyRootNamespaceContracts\Repositories\DummyClass as DummyClassContract;
+use DummyRootNamespaceEloquent\Models\DummyClass as Model;
+
+class DummyClass extends Base implements DummyClassContract
+{
+    public function __construct(Model $model)
+    {
+        $this->model = $model;
+    }
+}

@@ -1,0 +1,108 @@
+/* Start Loading Animation */
+@keyframes loading {
+  0% {
+    transform: translateY(0);
+  }
+
+  20% {
+    transform: translateY(-20px);
+  }
+
+  40% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* End Loading Animation */
+
+/* Start Custom Video Animation */
+@keyframes playButton {
+  0% {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 5rem;
+    background-color: #000;
+    opacity: 1;
+  }
+  25% {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 6rem;
+    background-color: #000;
+    opacity: 0.75;
+  }
+  50% {
+    width: 110px;
+    height: 110px;
+    line-height: 110px;
+    font-size: 7rem;
+    background-color: #000;
+    opacity: 0.5;
+  }
+  75% {
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    font-size: 8rem;
+    background-color: #000;
+    opacity: 0.25;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    font-size: 9rem;
+    background-color: #000;
+    opacity: 0;
+  }
+}
+
+@keyframes pauseButton {
+  0% {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 5rem;
+    background-color: #000;
+    opacity: 1;
+  }
+  25% {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 6rem;
+    background-color: #000;
+    opacity: 0.75;
+  }
+  50% {
+    width: 110px;
+    height: 110px;
+    line-height: 110px;
+    font-size: 7rem;
+    background-color: #000;
+    opacity: 0.5;
+  }
+  75% {
+    width: 130px;
+    height: 130px;
+    line-height: 130px;
+    font-size: 8rem;
+    background-color: #000;
+    opacity: 0.25;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    font-size: 9rem;
+    background-color: #000;
+    opacity: 0;
+  }
+}
+/* End Custom Video Animation */

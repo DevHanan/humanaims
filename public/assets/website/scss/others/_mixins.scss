@@ -1,0 +1,43 @@
+@mixin overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+// Main Buttons Hover
+@mixin buttonsHover {
+  &:hover {
+    background-color: #213ab5 !important;
+  }
+}
+// Center Elements
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// Main Box Shadows
+@mixin mainBoxShadow {
+  box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.3);
+}
+@mixin mainHomeShadow {
+  box-shadow: 0px 3px 6px #0000001a;
+}
+// Home & Profile Line
+@mixin underline {
+  height: 4px;
+  background: $mainBackground;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+@mixin upline {
+  width: 25%;
+  height: 6px;
+  background: $mainColor;
+}
