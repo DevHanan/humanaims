@@ -36,7 +36,7 @@
 
            
             <div class="row">
-              <div class="sign-button col-lg-12">
+              <div class="sign-button col-lg-12" style="padding:10px;">
                 
 <!--                   <input class="btn btn-primary" type="submit" value="{!! __('front.Sign In')!!}">
  -->           <button  class="btn btn-primary" type="submit" value="" style="width: 100% !important;padding: 10px;">{!! __('front.Sign In')!!}</button>

@@ -12,6 +12,7 @@
 
     <td>
         <div class="btn-group-horizantal" role="group" aria-label="horizantal button group">
+            @can('edit_users')
             <div class="btn-group" role="group">
             @component('dashboard.layouts.partials.buttons._edit_button',[
                     'route' => route('system.users.edit',$user->id),
@@ -19,6 +20,8 @@
                      ])
             @endcomponent
             </div>
+            @endcan
+            @can('delete_users')
                 <div class="btn-group" role="group">
 
             @component('dashboard.layouts.partials.buttons._delete_button',[
@@ -28,6 +31,7 @@
                          ])
             @endcomponent
                 </div>
+                @endcan
         </div>
 
 

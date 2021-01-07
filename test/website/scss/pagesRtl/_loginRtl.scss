@@ -1,0 +1,46 @@
+.login-page {
+  .login {
+    .right-box {
+      .login-background {
+        .chevron-r {
+          right: -25px;
+          &::after {
+            content: "\f053";
+          }
+        }
+      }
+    }
+    .left-box {
+      .box-content {
+        .form-one {
+          label[for="password"] {
+            span {
+              &.eye {
+                &::after {
+                  right: unset;
+                  left: 16px;
+                }
+              }
+              &.eye-slash {
+                &::after {
+                  right: unset;
+                  left: 16px;
+                }
+              }
+            }
+          }
+        }
+        .form-two {
+          label {
+            &::before {
+              right: -27px;
+            }
+            &::after {
+              right: -27px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

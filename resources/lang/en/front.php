@@ -6,6 +6,10 @@ return array (
   'Email Address' => 'Email Address',
   'Password' => 'Password',
   'Create Account' => 'Create Account',
+  'Subject added Successfully'  => 'Subject added Successfully',
+  'Drop filre Here Or'   => 'Drop file Here Or ',
+  'Browse' => 'Browse',
+  'here'  => 'here',
   'Forget Password?' => 'Forget Password?',
   'Please sign in to join our comunity' => 
   array (
@@ -95,4 +99,7 @@ return array (
   'Save' => 'Save',
   'View' => 'View',
   'Profile' => 'Profile',
+  'Login Failed' => 'Login Failed',
+  'rr' => 'cc',
+  'Data has been done successfully' => 'Data has been done successfully'
 );

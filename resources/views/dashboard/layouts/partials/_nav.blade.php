@@ -38,23 +38,12 @@
                             <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">{{auth()->user()->username}}</span>{{--<span class="user-status">Available</span>--}}</div><span><img class="round" src="{{asset('assets/dashboard/resources')}}/app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                           {{-- <a class="dropdown-item" href="#">
-                                <i class="feather icon-user"></i> Edit Profile
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="feather icon-mail"></i> My Inbox
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="feather icon-check-square"></i> Task
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="feather icon-message-square"></i> Chats
-                            </a>--}}
+                          
                             <a class="dropdown-item" href="{{route('system.home.edit')}}">
-                                <i class="feather icon-user"></i> {{__('Profile')}}
+                                <i class="feather icon-user"></i> {{__('back.Profile')}}
                             </a>
                             <a class="dropdown-item" href="{{route('system.switch-user-theme')}}">
-                                <i class="feather icon-eye-off"></i> {{__('Switch theme')}}
+                                <i class="feather icon-eye-off"></i> {{__('back.Switch theme')}}
                             </a>
                             <div class="dropdown-divider"></div>
 
@@ -62,7 +51,7 @@
                                 {{ csrf_field() }}
                             <button type=submit class="dropdown-item" style="width: 100%"><i
                                     class="feather icon-power"></i>
-                                {!! __('Log out') !!}
+                                {!! __('back.Logout') !!}
                             </button>
                             </form>
                         </div>

@@ -1,6 +1,12 @@
 <tr>
     <td>{!! $loop->iteration  !!}</td>
-    <td>{!! $role->name !!} </td>
+    <td>
+        @if(App::getLocale() == 'ar')
+        {!! $role->name_ar !!}
+        @else
+        {!! $role->name_en !!}
+        @endif
+         </td>
     <td>
         @foreach($role->permissions as $permissionm)
                 <span class="badge badge-info">{{ $permissionm->name }}</span>
@@ -10,6 +16,7 @@
     <td>
 
         <div class="btn-group-horizantal action-option-group" role="group" aria-label="horizantal button group">
+            @can('edit_roles')
             <div class="btn-group" role="group">
             @component('dashboard.layouts.partials.buttons._edit_button',[
                     'route' => route('system.roles.edit',$role->id),
@@ -17,6 +24,7 @@
                      ])
             @endcomponent
             </div>
+            @endcan
             <div class="btn-group" role="group">
             @component('dashboard.layouts.partials.buttons._show_button',[
                     'route' => route('system.roles.show',$role->id),
@@ -24,6 +32,8 @@
                      ])
             @endcomponent
             </div>
+                        @can('delete_roles')
+
                 <div class="btn-group" role="group">
 
             @component('dashboard.layouts.partials.buttons._delete_button',[
@@ -33,6 +43,7 @@
                          ])
             @endcomponent
                 </div>
+                @endcan
         </div>
 
 

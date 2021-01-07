@@ -1,0 +1,71 @@
+.profile-body {
+  .emoji-picker-icon {
+    right: unset;
+    left: 10px;
+  }
+  .emoji-menu {
+    right: unset;
+    left: 0;
+  }
+  .profile {
+    .profile-cover {
+      .cover_img {
+        .edit {
+          right: unset;
+          left: 30px;
+        }
+        .edit_menu {
+          right: unset;
+          left: 15px;
+          li {
+            text-align: center;
+          }
+        }
+      }
+      .profile_img {
+        left: unset;
+        right: 80px;
+        p {
+          right: unset;
+          left: -165px;
+          @media (max-width: 479.98px) {
+            left: -140px;
+          }
+        }
+        .edit_menu {
+          li {
+            text-align: center;
+          }
+        }
+      }
+    }
+    .profile-content {
+      .diaries {
+        .homeContent {
+          .wrightAPost {
+            .header {
+              form {
+                input {
+                  &::placeholder {
+                    direction: rtl;
+                  }
+                }
+              }
+            }
+          }
+          .posts {
+            .post {
+              .header {
+                .icons {
+                  .fa-share {
+                    transform: rotateY(180deg);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

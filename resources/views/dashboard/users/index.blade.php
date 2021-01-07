@@ -4,9 +4,11 @@
 @section('breadcrumb')
         @include('dashboard.layouts.partials._breadcrumb',['level'=>'users'])
 @endsection
+@can('add_users')
 @section('btn')
         @include('dashboard.layouts.partials._add_icon',['route'=>'users'])
 @endsection
+@endcan
 @section('content')
     <section id="column-selectors">
         <div class="row">

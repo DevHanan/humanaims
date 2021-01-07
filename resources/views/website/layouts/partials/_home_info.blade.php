@@ -16,7 +16,7 @@
                     </div>
                   </div>
                   <div class="text">
-                    <a href="profile.html" class="name">
+                    <a href="{{url('/profile')}}" class="name">
                         @if(Auth::guard('member')->check())
                       {{Auth::guard('member')->user()->fullname}}
                       @endif

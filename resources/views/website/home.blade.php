@@ -30,134 +30,14 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-3 pl-3 pr-3">
-          <div class="fixedFilter">
-            <span class="head">Filter By</span>
-            <div class="filters">
-              <div class="filter active">
-                <a>
-                  <span class="name">All</span>
-                </a>
-              </div>
-              <div class="filter">
-                <a href="#mental" data-toggle="collapse">
-                  <span class="name">Mental</span>
-                  <span class="cheveron">
-                    <i class="fas fa-chevron-right"></i>
-                  </span>
-                </a>
-                <ul class="collapse" id="mental">
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Depression</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Family Problems</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Strees</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>illusion</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Relligion Problems</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Secual Problems</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              <div class="filter">
-                <a href="#Physical" data-toggle="collapse">
-                  <span class="name">Physical</span>
-                  <span class="cheveron">
-                    <i class="fas fa-chevron-right"></i>
-                  </span>
-                </a>
-                <ul class="collapse" id="Physical">
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Dental pain</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>surgery</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Dermatologist</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Birth Defect</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+                    @include('website.layouts.partials._home_filter')
         </div>
         <div class="col-lg-9 toggle active">
           <div class="row">
             <div class="col-lg-9 col-12">
               <div class="homeContent">
-                                          @include('website.layouts.partials._subject_sec')
-
-                <div class="posts">
+                  @include('website.layouts.partials._subject_sec')
+                                  <div class="posts">
                     @foreach($subjects as $subject)
                   <div class="post">
                     <div class="header">
@@ -172,8 +52,7 @@
                               <a>{{optional($subject->member)->fullname}}</a>
                               <p>
                                 <i class="far fa-clock"></i>
-                                                               {{$subject->readableDate}}
-
+                                  {{$subject->readableDate}}
                               </p>
                             </div>
                                 @if(auth()->user()->isFollowing($subject->member))
@@ -259,6 +138,7 @@
                   </div>
                   @endforeach
                 </div>
+
               </div>
             </div>
             <div class="col-3 d-lg-block d-none pl-2 pr-2">

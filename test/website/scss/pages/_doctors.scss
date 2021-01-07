@@ -1,0 +1,288 @@
+.doctorsPage,
+.doctorsRtl,
+.usersPage,
+.usersRtl {
+  .doctorsContent {
+    margin: 15px 0;
+    .fixedFilter {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      @include mainHomeShadow;
+      span.head {
+        color: $mainColor;
+        display: block;
+        margin: 20px 0;
+      }
+      .underLine {
+        @include underline;
+        .line {
+          @include upline;
+        }
+      }
+      .filters {
+        max-height: 400px;
+        overflow-y: scroll;
+        .filter {
+          box-shadow: 5px 4px 6px #0000004a;
+          margin: 10px 0;
+          padding: 10px;
+          background-color: #fff;
+          &.active {
+            a {
+              span.name {
+                color: green;
+                font-weight: bold;
+              }
+            }
+          }
+          a {
+            display: flex;
+            justify-content: space-between;
+            color: #333;
+            &:hover {
+              text-decoration: none !important;
+            }
+            span.cheveron {
+              background-color: #eee;
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+              display: inline-block;
+              text-align: center;
+              line-height: 25px;
+              transition: all 0.2s linear;
+              &.downLeft {
+                transform: rotatez(90deg);
+              }
+              &.downRight {
+                transform: rotatez(-90deg);
+              }
+              &:hover {
+                i {
+                  color: #333;
+                }
+              }
+              i {
+                color: $mainColor;
+                font-size: 16px;
+              }
+            }
+          }
+          ul {
+            max-height: 400px;
+            overflow-y: scroll;
+            li {
+              box-shadow: 0px 3px 6px #00000008;
+              margin: 10px 0;
+              padding: 10px;
+              position: relative;
+              cursor: pointer;
+              transition: all 0.2s linear;
+              &.active {
+                .spanOnActive {
+                  display: block;
+                }
+                span:nth-child(2) {
+                  color: $mainColor;
+                  font-weight: bold;
+                }
+                span:first-child {
+                  background: $mainColor;
+                  i {
+                    color: $mainBackground;
+                  }
+                }
+              }
+              &:hover {
+                background: #d6cfdd36;
+              }
+              span:first-child {
+                background: $mainBackground;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                text-align-last: center;
+                display: inline-block;
+                border-radius: 50%;
+                i {
+                  color: $mainColor;
+                }
+              }
+              span:nth-child(2) {
+                color: #333;
+                margin: 0 10px;
+                font-size: 15px;
+              }
+              .spanOnActive {
+                background: $mainBackground;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                text-align-last: center;
+                display: inline-block;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 10px;
+                display: none;
+                i {
+                  color: $mainColor;
+                }
+              }
+            }
+          }
+        }
+      }
+      form {
+        margin: 0 20px 0;
+        label {
+          cursor: pointer;
+          span {
+            display: inline-block;
+            background: #2f3c7e21;
+            border-radius: 50%;
+            text-align: center !important;
+            margin: 0 5px;
+            width: 30px;
+            height: 30px;
+            line-height: 34px;
+            cursor: pointer;
+            i {
+              color: $mainColor;
+              font-size: 20px;
+            }
+          }
+        }
+        select {
+          color: $mainColor;
+          margin: 10px 0;
+        }
+        .starSelect {
+          select {
+          }
+        }
+      }
+    }
+    .doctors {
+      margin: 0 0 40px 0;
+      form {
+        padding: 10px 0;
+        margin: 15px 0;
+        .search {
+          display: flex;
+          background-color: #dcdcdc;
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.22);
+          height: 34px;
+          input {
+            color: #868686;
+            flex-grow: 1;
+            border: none;
+            background: none;
+            outline: none;
+          }
+          button {
+            background: none;
+            border: none;
+            text-align: center;
+            i {
+              color: #868686;
+            }
+          }
+        }
+      }
+      .row {
+        .doctor {
+          background-color: #fff;
+          border-radius: 10px;
+          cursor: pointer;
+          margin: 15px;
+          transition: all 0.2s linear;
+          @include mainHomeShadow;
+          &:hover {
+            background: #d6cfddb8;
+            .text {
+              background: #d6cfddb8;
+            }
+          }
+          .images {
+            position: relative;
+            .background {
+              height: 130px;
+              width: 100%;
+              border-radius: 10px;
+            }
+            .subImage {
+              width: 80px;
+              height: 80px;
+              position: absolute;
+              bottom: -25px;
+              left: 50%;
+              transform: translateX(-50%);
+              .profile_pic {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border: 3px solid #fff;
+                border-radius: 50%;
+                box-shadow: 0px 3px 5px #6a6969;
+              }
+              .profile_sub_pic {
+                position: absolute;
+                width: 38px;
+                height: 35px;
+                border-radius: 50%;
+                background: #fff;
+                padding: 5px;
+                top: 0;
+                right: -6px;
+              }
+            }
+          }
+          .text {
+            background: #fff;
+            border-radius: 0 0 10px 10px;
+            border-bottom: 4px solid $mainColor;
+            padding: 0 10px 20px;
+            transition: all 0.2s linear;
+            .rate_Chat {
+              display: flex;
+              padding: 15px 10px 10px 10px;
+              justify-content: space-between;
+              ul {
+                display: flex;
+                li {
+                  margin: 0 1px;
+                  i {
+                    color: $mainColor;
+                    font-size: 12px;
+                  }
+                }
+              }
+              span {
+                display: inline-block;
+                i {
+                  color: $mainColor;
+                  font-size: 20px;
+                }
+              }
+            }
+            .name {
+              text-align: center !important;
+              a {
+                color: $mainColor;
+              }
+              p {
+                color: gray;
+                margin: 0;
+                font-size: 14px;
+                text-align: center !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

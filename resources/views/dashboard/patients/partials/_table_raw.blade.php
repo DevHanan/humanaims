@@ -5,6 +5,7 @@
     <td>
 
         <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            @can('show_member')
             <div class="btn-group" role="group">
             @component('dashboard.layouts.partials.buttons._show_button',[
                     'route' => route('system.patients.show',$patient->id),
@@ -12,6 +13,7 @@
                      ])
             @endcomponent
             </div>
+            @endcan
                 
         </div>
 

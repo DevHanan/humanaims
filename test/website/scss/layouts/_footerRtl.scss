@@ -1,0 +1,20 @@
+footer {
+  .container {
+    .row {
+      &>div {
+        h2 {
+          &:after {
+            content: "";
+            left: unset;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+  .copyRight {
+    p {
+      text-align: center;
+    }
+  }
+}

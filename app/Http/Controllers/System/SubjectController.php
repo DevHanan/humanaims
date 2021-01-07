@@ -18,6 +18,8 @@ class SubjectController extends Controller
  function __construct() {
         $this->middleware( 'permission:list_subjects', [ 'only' => [ 'index' ] ] );
         $this->middleware( 'permission:show_subject', [ 'only' => [ 'show'] ] );
+        $this->middleware( 'permission:delete_subject', [ 'only' => [ 'destroy'] ] );
+
     }
 
     public function index()
@@ -92,7 +94,6 @@ class SubjectController extends Controller
     {
         
         $subject= Subject::findOrFail($id);
-//        $Category->syncRoles([]);
         $subject->delete();
         toast(__('back.Subject Deleted successfully'),'success');
         return redirect(route('system.subjects.index'));

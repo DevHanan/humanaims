@@ -27,7 +27,7 @@
                         {{__('back.createdBy')}}
                         </th>
                         <td>
-                            {{ optional($subject->subjectable)->fullname }}
+                            {{ optional($subject->member)->fullname }}
                         </td>
                     </tr>
                      <tr>

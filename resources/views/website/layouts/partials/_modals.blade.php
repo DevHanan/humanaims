@@ -14,7 +14,7 @@
               <img class="profile_sub_pic" src="{{asset('assets/website/images/home/profile-sub-image.png')}}">
             </div>
             <div class="headerForm">
-              <textarea type="text" data-emojiable="true"></textarea>
+              <textarea type="text" data-emojiable="true" name="body"></textarea>
              <!--  <div class="postUplode">
                 <img class="popUpUplodeImage" src="{{asset('assets/website/images/David-Beckham.jpg')}}">
                 <video src="" class="toggle"></video>

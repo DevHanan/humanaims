@@ -6,7 +6,7 @@
         <th scope="col">{{__('back.Options')}}</th>
     </thead>
     <tbody>
-    @foreach($countries as $specialization)
+    @foreach($countries as $country)
         @include('dashboard.countries.partials._table_raw')
     @endforeach
     </tbody>

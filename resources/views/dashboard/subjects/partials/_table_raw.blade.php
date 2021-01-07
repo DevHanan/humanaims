@@ -5,6 +5,7 @@
         <td>{!! optional($subject->category)->name !!}</td>
     <td>
         <div class="btn-group-horizantal" role="group" aria-label="Vertical button group">
+            @can('show_subject')
             <div class="btn-group" role="group">
             @component('dashboard.layouts.partials.buttons._show_button',[
                     'route' => route('system.subjects.show',$subject->id),
@@ -12,6 +13,9 @@
                      ])
             @endcomponent
             </div>
+            @endcan
+                        @can('delere_subject')
+
                 <div class="btn-group" role="group">
 
             @component('dashboard.layouts.partials.buttons._delete_button',[
@@ -21,6 +25,7 @@
                          ])
             @endcomponent
                 </div>
+                @endcan
         </div>
 
 

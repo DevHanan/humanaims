@@ -4,6 +4,10 @@ return array (
   'Home' => 'الصفحة الرئيسية',
   'Sign In' => 'تسجيل الدخول',
   'Email Address' => 'البريد الإلكترونى',
+  'Subject added Successfully'  => 'تم إضافة الموضوع بنجاح',
+  'Drop filre Here Or'   => 'قم بإسقاط الملف هنا أو',
+  'Browse' => 'تصفح',
+  'here'  => 'هنا',
   'Password' => 'كلمة المرور',
   'Please sign in to join our comunity' => 
   array (
@@ -95,4 +99,6 @@ return array (
   'Cancel' => 'إلغاء',
   'View' => 'عرض',
   'Profile' => 'حسابى',
+  'Login Failed' => 'خطأ أثناء محاولة تسجيل الدخول',
+  'Data has been done successfully'  => 'تم تعديل البيانات بنجاح'
 );

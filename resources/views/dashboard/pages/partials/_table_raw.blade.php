@@ -7,6 +7,7 @@
     <td>
 
         <div class="btn-group-horizantal action-option-group" role="group" aria-label="horizantal button group">
+            @can('edit_pages')
             <div class="btn-group" role="group">
             @component('dashboard.layouts.partials.buttons._edit_button',[
                     'route' => route('system.pages.edit',$page->id),
@@ -14,6 +15,7 @@
                      ])
             @endcomponent
             </div>
+            @endcan
             <div class="btn-group" role="group">
             @component('dashboard.layouts.partials.buttons._show_button',[
                     'route' => route('system.pages.show',$page->id),
@@ -21,6 +23,7 @@
                      ])
             @endcomponent
             </div>
+            @can('delete_pages')
                 <div class="btn-group" role="group">
 
             @component('dashboard.layouts.partials.buttons._delete_button',[
@@ -30,6 +33,7 @@
                          ])
             @endcomponent
                 </div>
+                @endcan
         </div>
 
 

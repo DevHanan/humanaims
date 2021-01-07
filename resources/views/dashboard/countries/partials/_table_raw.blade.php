@@ -1,34 +1,39 @@
 <tr>
     <td>{!! $loop->iteration  !!}</td>
-    <td>{!! $specialization->name !!} </td>
+    <td>{!! $country->name !!} </td>
    
 
     <td>
 
         <div class="btn-group-horizantal action-option-group" role="group" aria-label="horizantal button group">
+                            @can('edit_countries')
             <div class="btn-group" role="group">
             @component('dashboard.layouts.partials.buttons._edit_button',[
-                    'route' => route('system.countries.edit',$specialization->id),
-                    'tooltip' => __('Edit '.$specialization['name']),
+                    'route' => route('system.countries.edit',$country->id),
+                    'tooltip' => __('Edit '.$country['name']),
                      ])
             @endcomponent
             </div>
+            @endcan
             <div class="btn-group" role="group">
             @component('dashboard.layouts.partials.buttons._show_button',[
-                    'route' => route('system.countries.show',$specialization->id),
-                    'tooltip' => __('Show '.$specialization['name']),
+                    'route' => route('system.countries.show',$country->id),
+                    'tooltip' => __('Show '.$country['name']),
                      ])
             @endcomponent
             </div>
+                            @can('delete_countries')
+
                 <div class="btn-group" role="group">
 
             @component('dashboard.layouts.partials.buttons._delete_button',[
-                        'id'=>$specialization->id,
-                        'route' => route('system.countries.destroy',$specialization->id) ,
-                        'tooltip' => __('Delete '.$specialization['name']),
+                        'id'=>$country->id,
+                        'route' => route('system.countries.destroy',$country->id) ,
+                        'tooltip' => __('Delete '.$country['name']),
                          ])
             @endcomponent
                 </div>
+                @endcan
         </div>
 
 

@@ -4,9 +4,7 @@
 @section('breadcrumb')
         @include('dashboard.layouts.partials._breadcrumb',['level'=>'visits'])
 @endsection
-@section('btn')
-        @include('dashboard.layouts.partials._add_icon',['route'=>'visits'])
-@endsection
+
 @section('content')
     <section id="column-selectors">
         <div class="row">

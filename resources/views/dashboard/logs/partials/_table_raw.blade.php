@@ -11,7 +11,7 @@
     <td>
 
         <div class="btn-group-horizantal action-option-group" role="group" aria-label="horizantal button group">
-            
+            @can('show_log')
             <div class="btn-group" role="group">
             @component('dashboard.layouts.partials.buttons._show_button',[
                     'route' => route('system.logs.show',$log->id),
@@ -19,6 +19,9 @@
                      ])
             @endcomponent
             </div>
+            @endcan
+
+             @can('delete_log')
                 <div class="btn-group" role="group">
 
             @component('dashboard.layouts.partials.buttons._delete_button',[
@@ -28,6 +31,7 @@
                          ])
             @endcomponent
                 </div>
+                @endcan
         </div>
 
 

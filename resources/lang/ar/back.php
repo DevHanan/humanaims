@@ -151,4 +151,9 @@ return array (
   'Referer' => 'المرجع',
   'User Agent' => 'User Agent',
   'Url' => 'Url',
+  'Five Latest Subjects' => 'أحدث خمس موضوعات',
+  'Profile' => 'الصفحة الشخصية',
+  'Logout' => 'تسجيل الخروج',
+  'Switch theme' => 'تغير الثيم',
+  'Most Visited Subjects' => 'الاكثر مشاهدة',
 );

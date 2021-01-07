@@ -151,4 +151,9 @@ return array (
   'User Agent' => 'User Agent',
   'Url' => 'Url',
   'Referer' => 'Referer',
+  'Five Latest Subjects' => 'Five Latest Subjects',
+  'Logout' => 'Logout',
+  'Profile' => 'Profile',
+  'Switch theme' => 'Switch theme',
+  'Most Visited Subjects' => 'Most Visited Subjects',
 );

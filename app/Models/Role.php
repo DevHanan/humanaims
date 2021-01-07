@@ -23,7 +23,6 @@ class Role extends Model
         'deleted_at',
     ];
 
-        protected $with = ['permissions'];
 
 
     public function getNameAttribute(){

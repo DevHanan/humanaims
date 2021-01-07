@@ -8,43 +8,7 @@
 
 
 @section('content')
-   <!--  <section id="column-selectors">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Search by date</h4>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-body card-dashboard">
-                            {!! Form::open(['method'=>'get','class'=>'form']) !!}
-                            <div class="row">
-                                @if($errors->any())
-                                    {!! implode('', $errors->all('<div>:message</div>')) !!}
-                                @endif
-                                <div class="form-group  col-md-6">
-                                    <label for="from_date"> {{__('From date')}}</label>
-                                    {!! Form::text('from',request()->from ??null,['class'=>'form-control col datepicker','id'=>'from_date']) !!}
-                                </div>
-
-                                <div class="form-group  col-md-6">
-                                    <label for="to_date"> {{__('To date')}} </label>
-                                    {!! Form::text('to',request()->to??null,['class'=>'form-control col datepicker','id'=>'to_date']) !!}
-                                </div>
-
-                                <div class="col-12">
-                                    <button type="submit" class="btn col-12 btn-primary mr-1 mb-1 waves-effect waves-light">{{__('Search')}} <i class="fa fa-search"></i></button>
-                                </div>
-                            </div>
-                            {!! Form::close() !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </section> -->
+   
 <div class="content-body">
                 <!-- Statistics card section start -->
                 <section id="statistics-card">
@@ -145,6 +109,64 @@
                         </div>
                        
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">{{__('back.Five Latest Subjects')}} </h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        @foreach($recent_subject as $subject)
+                                        <div class="list-group">
+                                            <a href="{{url('system/subjects/'.$subject->id)}}" class="list-group-item list-group-item-action ">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h5 class="mb-1 text-white">{{optional($subject->member)->fullname}}</h5>
+                                                    <small>{{$subject->readableDate}}</small>
+                                                </div>
+                                                <p class="mb-1"> {{ substr($subject->body,0,20)}}</p>
+                                            </a>
+                                           
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <div class="col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">{{__('back.Most Visited Subjects')}} </h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        @foreach($most_visited as $subject)
+                                        <div class="list-group">
+                                            <a href="{{url('system/subjects/'.$subject->id)}}" class="list-group-item list-group-item-action ">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <h5 class="mb-1 text-white">{{optional($subject->member)->fullname}}</h5>
+                                                    
+                                                    <p >  
+                                                        <small>{{$subject->readableDate}}</small>
+                                                        </p>
+                                                        <small > {{__('back.Views')}} <span>{{$subject->viewCount}}</span></small> 
+                          
+
+                                                </div>
+                                                <p class="mb-1"> {{ substr($subject->body,0,20)}}</p>
+                                            </a>
+                                           
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                        </div>
+                       
                    
                 </section>
                 <!-- // Statistics Card section end-->

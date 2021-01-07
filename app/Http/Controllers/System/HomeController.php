@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 
 use App\User;
+use App\Models\Subject;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -29,8 +31,9 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-
-        return view('dashboard.home');
+        $recent_subject = Subject::latest()->take(5)->get();
+        $most_visited = Subject::all()->sortByDesc('viewCount')->take(2);
+        return view('dashboard.home',compact('recent_subject','most_visited'));
     }
 
 

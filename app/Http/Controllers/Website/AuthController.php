@@ -138,7 +138,6 @@ class AuthController extends Controller
 
     public function profile(Request $request){
        
-       // return $request->all();
         $data = Member::findOrFail(Auth::id());
         if($request->fullname)
             $data->update(['fullname'=>$request->fullname]);

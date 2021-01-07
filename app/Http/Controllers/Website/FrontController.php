@@ -50,10 +50,21 @@ class FrontController extends Controller
     }
 
     public function storeSubject(Request $request){
-                $request->merge(['member_id'=>auth()->guard('member')->user()->id]);
-                Subject::create($request->except(['audio','image','d_video','n_video']));
+                $request->merge(['member_id'=>Auth::id()]);
+                $subject = Subject::create($request->except(['audio','image','d_video','n_video']));
+                if($request->hasFile('image'))
+        {
+            $path = base_path();
+            $destinationPath = $path.'/uploads/subjects/image'; // upload path
+            $image= $request->file('image');
+            $extension = $image->getClientOriginalExtension(); // getting image extension
+            $name = time().''.rand(11111,99999).'.'.$extension; // renameing image
+            $image->move($destinationPath, $name); // uploading file to given path
+            $subject->image='uploads/subjects/image/'.$name;
+            $subject->save();
+        }
                 toast(__('front.Subject added Successfully'),'success');
-                return redirect('/home');
+                return redirect()->back();
 
     }
 

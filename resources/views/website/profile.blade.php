@@ -32,21 +32,22 @@
   <!--==== Upload Cover Popup ====-->
   <div class="uploadCover hidden">
     <div class="container">
-      <form action="{{url('/edit-profile')}}" class="popup-body" method="POST" enctype="multipart/form-data" id="form_background">
+      <form action="{{url('/edit-profile')}}" class="popup-body" method="POST" enctype="multipart/form-data" id="form_background" files="true">
         @csrf
         <button class="close-icon"><i class="fas fa-times"></i></button>
         <div class="img-review">
           <img id="reviewCover" class="review-img" src="" alt="Uploaded Image">
-          <div class="uploadInput" action="#">
+          <div class="uploadInput">
             <input id="coverInput" class="upload-input" type="file" dir="auto" name="background">
+
           </div>
         </div>
         <div class="upload-icon">
           <i class="fas fa-cloud-upload-alt"></i>
-          <p class="mt-2 text-center">Drop filre Here Or <span>Browse</span> here</p>
+          <p class="mt-2 text-center"> {!! __('front.Drop filre Here Or') !!} <span>{!! __('front.Browse') !!}</span> {!! __('front.here') !!}</p>
         </div>
         <div class="save" action="#">
-          <input class="saveButton" type="button" value="Save" dir="auto">
+          <input class="saveButton" type="button" value="{!! __('front.Save') !!}" dir="auto">
         </div>
       </form>
     </div>
@@ -54,22 +55,22 @@
   <!-- Upload Image -->
   <div class="uploadImage hidden">
     <div class="container">
-      <form action="{{url('/edit-profile')}}" class="popup-body" method="POST" enctype="multipart/form-data" id="form_image">
+      <form action="{{url('/edit-profile')}}" class="popup-body" method="POST" enctype="multipart/form-data" id="form_image" files="true">
                 @csrf
 
         <button class="close-icon"><i class="fas fa-times"></i></button>
         <div class="img-review">
           <img id="reviewImage" class="review-img crop" src="" alt="Uploaded Image">
-          <div class="uploadInput" action="#">
+          <div class="uploadInput">
             <input id="imageInput" class="upload-input" type="file" dir="auto" name="image">
           </div>
         </div>
         <div class="upload-icon">
           <i class="fas fa-cloud-upload-alt"></i>
-          <p class="mt-2 text-center">Drop filre Here Or <span>Browse</span> here</p>
+           <p class="mt-2 text-center"> {!! __('front.Drop filre Here Or') !!} <span>{!! __('front.Browse') !!}</span> {!! __('front.here') !!}</p>
         </div>
         <div class="save" action="#">
-          <input class="saveButtonTwo" type="button" value="Save" dir="auto">
+          <input class="saveButtonTwo" type="button" value="{!! __('front.Save') !!}" dir="auto">
           <input class="cropPic" type="button" value="Crop" dir="auto">
         </div>
       </form>
@@ -144,209 +145,9 @@
                 <div class="row justify-content-center">
                   <div class="homeContent col-12">
                            @include('website.layouts.partials._subject_sec')
+                           @include('website.layouts.partials._subjects')
 
-                    <div class="posts">
-                        @foreach($ownSubjects as $subject)
-                      <div class="post">
-                        <div class="header">
-                          <div class="row">
-                            <div class="col-sm-9 col-9">
-                              <div class="imageName">
-                                <div class="image">
-                                  <img src="{{asset('assets/website/images/David-Beckham.jpg')}}">
-                                  <img class="profile_sub_pic" src="{{asset('assets/website/images/home/profile-sub-image.png')}}">
-                                </div>
-                                <div class="name">
-                                  <a>Mohamed Ahmed</a>
-                                  <p>
-                                    2 seconds Ago
-                                    <i class="far fa-clock"></i>
-                                  </p>
-                                </div>
-                                <button class="btn">Follow</button>
-                              </div>
-                            </div>
-                            <div class="col-sm-2 col-3">
-                              <div class="icons">
-                                <i class="fas fa-heart"></i>
-                                <i class="fas fa-share"></i>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="text" dir="auto">
-                          <p class="readMore">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sunt
-                            corporis
-                            repellat
-                            consequuntur aperiam eveniet placeat ea recusandae aliquid<span class="dots">...</span><span
-                              class="more">Non corporis, quo quod rem, omnis, vitae hic
-                              voluptatibus distinctio dolores
-                              quas in cum qui! Dolorem ipsam iste qui sapiente. Dolorem libero accusantium, repellat
-                              quidem ratione, quaerat earum ad dolor magni architecto obcaecati nesciunt odio itaque,
-                              nihil
-                              cum, corrupti obcaecati quo eius at quod. Quidem quas qui natus ex? Voluptas doloribus
-                              dolor, eum repellat impedit atque aliquid? Voluptatem iure suscipit illo.</span><button
-                              type="button" class="read">Read More</button></p>
-                        </div>
-                        <div class="imageOrvideo">
-                          <img class="postImage" src="{{asset('assets/website/images/profile/gril.jpg')}}">
-                        </div>
-                        <div class="footer">
-                          <div class="row">
-                            <div class="col-md-5 col-6">
-                              <div class="l_icons">
-                                <i class="fas fa-thumbs-up"></i>
-                                <i class="fas fa-thumbs-down"></i>
-                                <i class="fas fa-comment-dots"></i>
-                              </div>
-                            </div>
-                            <div class="offset-md-4 col-md-3 col-6">
-                              <div class="r_icons">
-                                <i class="fas fa-share-alt"></i>
-                                <i class="fas fa-eye"></i> <span>255</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="toggleCommnetsArea hidden">
-                          <div class="comments">
-                            <div class="comment">
-                              <div class="row">
-                                <div class="col-9">
-                                  <div class="imageName">
-                                    <div class="image">
-                                      <img src="{{asset('assets/website/images/David-Beckham.jpg')}}">
-                                      <img class="profile_sub_pic" src="{{asset('assets/website/images/home/profile-sub-image.png')}}">
-                                    </div>
-                                    <div class="name">
-                                      <a>Mohamed Ahmed</a>
-                                      <p>
-                                        2 seconds Ago
-                                        <i class="far fa-clock"></i>
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-2 col-2">
-                                  <div class="icons">
-                                    <i class="fas fa-heart"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="commentContent">
-                                <p class="readMore">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-                                  sunt
-                                  corporis
-                                  repellat
-                                  consequuntur aperiam eveniet placeat ea recusandae aliquid<span
-                                    class="dots">...</span><span class="more">Non corporis, quo quod rem, omnis, vitae
-                                    hic
-                                    enda enim aspernatur magni
-                                    nihil
-                                    cum, corrupti obcaecati quo eius at quod. Quidem quas qui natus ex? Voluptas
-                                    doloribus
-                                    dolor, eum repellat impedit atque aliquid? Voluptatem iure suscipit
-                                    illo.</span><button type="button" class="read">Read More</button></p>
-                                <div class="reply">
-                                  <i class="fas fa-camera"></i>
-                                  <i class="fas fa-comments"></i>
-                                </div>
-                                <div class="replyToComment">
-                                  <div class="images">
-                                    <img class="profile_pic" src="{{asset('assets/website/images/David-Beckham.jpg')}}">
-                                    <img class="profile_sub_pic" src="{{asset('assets/website/images/home/profile-sub-image.png')}}">
-                                  </div>
-                                  <form>
-                                    <textarea type="text" data-emojiable="true" placeholder="Type Your Subject here"
-                                      dir="auto"></textarea>
-                                    <ul>
-                                      <li><i class="fas fa-camera"></i></li>
-                                    </ul>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="comment">
-                              <div class="row">
-                                <div class="col-9">
-                                  <div class="imageName">
-                                    <div class="image">
-                                      <img src="{{asset('assets/website/images/David-Beckham.jpg')}}">
-                                      <img class="profile_sub_pic" src="{{asset('assets/website/images/home/profile-sub-image.png')}}">
-                                    </div>
-                                    <div class="name">
-                                      <a>Mohamed Ahmed</a>
-                                      <p>
-                                        2 seconds Ago
-                                        <i class="far fa-clock"></i>
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-2 col-2">
-                                  <div class="icons">
-                                    <i class="fas fa-heart"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="commentContent">
-                                <p class="readMore">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-                                  sunt
-                                  corporis
-                                  repellat
-                                  consequuntur aperiam eveniet placeat ea recusandae aliquid<span
-                                    class="dots">...</span><span class="more">Non corporis, quo quod rem, omnis, vitae
-                                    hic
-                                    ad dolor magni architecto obcaecati nesciunt odio itaque,
-                                    pimpedit atque aliquid? Voluptatem iure suscipit illo.</span><button type="button"
-                                    class="read">Read More</button></p>
-                                <div class="reply">
-                                  <i class="fas fa-camera"></i>
-                                  <i class="fas fa-comments"></i>
-                                </div>
-                                <div class="replyToComment">
-                                  <div class="images">
-                                    <img class="profile_pic" src="{{asset('assets/website/images/David-Beckham.jpg')}}">
-                                    <img class="profile_sub_pic" src="{{asset('assets/website/images/home/profile-sub-image.png')}}">
-                                  </div>
-                                  <form>
-                                    <textarea type="text" data-emojiable="true" placeholder="Type Your Subject here"
-                                      dir="auto"></textarea>
-                                    <ul>
-                                      <li><i class="fas fa-camera"></i></li>
-                                    </ul>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="wrightComment">
-                            <div class="flexSttuf">
-                              <div class="images">
-                                <img class="profile_pic" src="{{asset('assets/website/images/David-Beckham.jpg')}}">
-                                <img class="profile_sub_pic" src="{{asset('assets/website/images/home/profile-sub-image.png')}}">
-                              </div>
-                              <form>
-                                <textarea type="text" data-emojiable="true" placeholder="Type Your Subject here"
-                                  dir="auto"></textarea>
-                                <ul>
-                                  <li>
-                                    <input class="imgInput" type="file" dir="auto">
-                                    <i class="fas fa-camera"></i>
-                                  </li>
-                                </ul>
-                              </form>
-                            </div>
-                            <div class="uplode">
-                              <img class="uplodeImg" src="">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      @endforeach
-                    </div>
+                   
                   </div>
                 </div>
               </div>
@@ -825,8 +626,8 @@
 
     $("#profile-edit").on("click", function () {
     if ($(this).val() == "Edit") {
-      $("#form_background").submit();
-           $("#form_image").submit();
+        $("#form_background").submit();
+        setTimeout($("#form_image").submit(),1000);
     } 
   });
        
