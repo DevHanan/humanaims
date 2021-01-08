@@ -36,8 +36,8 @@
 {{--<script src="{{asset('assets/dashboard/resources')}}/app-assets/js/scripts/pages/invoice.js"></script>--}}
 <!-- END: Page JS-->
 
-@if(\Illuminate\Support\Facades\App::isLocale('ar'))
 
+@if(App::getLocale() == 'ar')
 <script src="//cdn.datatables.net/plug-ins/1.10.21/i18n/Arabic.json"></script>
 @endif
 <!-- CK Editor -->

@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $recent_subject = Subject::latest()->take(5)->get();
-        $most_visited = Subject::all()->sortByDesc('viewCount')->take(2);
+        $most_visited = Subject::latest()->take(5)->get();
         return view('dashboard.home',compact('recent_subject','most_visited'));
     }
 

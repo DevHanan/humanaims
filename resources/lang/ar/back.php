@@ -151,9 +151,10 @@ return array (
   'Referer' => 'المرجع',
   'User Agent' => 'User Agent',
   'Url' => 'Url',
-  'Five Latest Subjects' => 'أحدث خمس موضوعات',
+  'Five Latest Subjects' => 'أحدث  الموضوعات',
   'Profile' => 'الصفحة الشخصية',
   'Logout' => 'تسجيل الخروج',
   'Switch theme' => 'تغير الثيم',
-  'Most Visited Subjects' => 'الاكثر مشاهدة',
+  'Most Visited Subjects' => 'الموضوعات اﻷكثر مشاهدة',
+  'No Data Found' => 'لا توجد بيانات للعرض',
 );

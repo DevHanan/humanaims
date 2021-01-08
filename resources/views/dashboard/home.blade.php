@@ -117,40 +117,24 @@
                                     <h4 class="card-title">{{__('back.Five Latest Subjects')}} </h4>
                                 </div>
                                 <div class="card-content">
+                                        @if($recent_subject)
                                     <div class="card-body">
                                         @foreach($recent_subject as $subject)
-                                        <div class="list-group">
+                                          <div class="list-group">
                                             <a href="{{url('system/subjects/'.$subject->id)}}" class="list-group-item list-group-item-action ">
                                                 <div class="d-flex w-100 justify-content-between">
-                                                    <h5 class="mb-1 text-white">{{optional($subject->member)->fullname}}</h5>
-                                                    <small>{{$subject->readableDate}}</small>
-                                                </div>
-                                                <p class="mb-1"> {{ substr($subject->body,0,20)}}</p>
-                                            </a>
-                                           
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                          <div class="col-md-6 col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">{{__('back.Most Visited Subjects')}} </h4>
-                                </div>
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        @foreach($most_visited as $subject)
-                                        <div class="list-group">
-                                            <a href="{{url('system/subjects/'.$subject->id)}}" class="list-group-item list-group-item-action ">
-                                                <div class="d-flex w-100 justify-content-between">
-                                                    <h5 class="mb-1 text-white">{{optional($subject->member)->fullname}}</h5>
-                                                    
-                                                    <p >  
+                                                    <div class="col-md-6">
+                                                          <h5 class="mb-1 text-white">{{optional($subject->member)->fullname}}</h5>
+                                                    </div>
+                                                  
+                                                    <div class="col-sm-6" style="text-align:end;">
+                                                        <p >  
                                                         <small>{{$subject->readableDate}}</small>
                                                         </p>
                                                         <small > {{__('back.Views')}} <span>{{$subject->viewCount}}</span></small> 
+                                                    </div>
+                                                    
+                                                    
                           
 
                                                 </div>
@@ -160,6 +144,48 @@
                                         </div>
                                         @endforeach
                                     </div>
+                                    @else
+                                    {{__('back.No Data Found')}} 
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                          <div class="col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">{{__('back.Most Visited Subjects')}} </h4>
+                                </div>
+                                <div class="card-content">
+                                    @if($most_visited)
+                                    <div class="card-body">
+                                        @foreach($most_visited as $subject)
+                                        <div class="list-group">
+                                            <a href="{{url('system/subjects/'.$subject->id)}}" class="list-group-item list-group-item-action ">
+                                                <div class="d-flex w-100 justify-content-between">
+                                                    <div class="col-md-6">
+                                                          <h5 class="mb-1 text-white">{{optional($subject->member)->fullname}}</h5>
+                                                    </div>
+                                                  
+                                                    <div class="col-sm-6" style="text-align:end;">
+                                                        <p >  
+                                                        <small>{{$subject->readableDate}}</small>
+                                                        </p>
+                                                        <small > {{__('back.Views')}} <span>{{$subject->viewCount}}</span></small> 
+                                                    </div>
+                                                    
+                                                    
+                          
+
+                                                </div>
+                                                <p class="mb-1"> {{ substr($subject->body,0,20)}}</p>
+                                            </a>
+                                           
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    @else
+                                     {{__('back.No Data Found')}} 
+                                    @endif
                                 </div>
                             </div>
                         </div>

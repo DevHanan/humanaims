@@ -13,7 +13,7 @@ class TempController extends Controller
 
     }
     public function index(){
-    $users = TempUser::all();
+    $users = TempUser::where('verified',0)->latest()->get();
     return view('dashboard.tempusers.index',compact('users'));
     }
 }

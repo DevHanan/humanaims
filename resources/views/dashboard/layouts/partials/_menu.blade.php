@@ -28,7 +28,7 @@
  @can('waiting_users')
            <li class=" nav-item @if(Request::is('system/temp/*') || Request::is('system/temp')) active open  @endif">
                <a href="{{url('system/temp')}}">
-                   <i class="feather icon-settings"></i><span class="menu-item" data-i18n="Fixed navbar">{{__('back.Waiting Users')}}</span>
+                   <i class="feather icon-users"></i><span class="menu-item" data-i18n="Fixed navbar">{{__('back.Waiting Users')}}</span>
                </a>
            </li>
            @endcan
@@ -36,7 +36,7 @@
 @canany(['list_specializations', 'add_specializations','edit_specializations','delete_specializations'])
   <li class="@if(Request::is('system/specializations/*') || Request::is('system/specializations')) active open  @endif">
                         <a href="{{route('system.specializations.index')}}">
-                            <i class="feather icon-droplet"></i><span class="menu-item" data-i18n="Fixed navbar">{{__('back.specializations')}}</span>
+                            <i class="fa fa-bars"></i><span class="menu-item" data-i18n="Fixed navbar">{{__('back.specializations')}}</span>
                         </a>
   </li>
 @endcanany

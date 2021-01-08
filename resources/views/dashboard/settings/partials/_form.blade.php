@@ -27,13 +27,13 @@
     {{input_error($errors,'verify_expire_time')}}
 </div>
 
-<div class=" form-group col-md-12">
+<!-- <div class=" form-group col-md-12">
     <a class="btn btn-primary" data-toggle="expanded" href="#collapseAdditionalinfo" role="button" aria-expanded="true" aria-controls="collapseAdditionalinfo">
     {{__('back.Enter Social Media information (optional)')}}
     </a>
-</div>
+</div> -->
 
-<div class="row " id="collapseAdditionalinfo">
+<div class="row " >
 
     <div class="form-group  col-md-6">
     <label for="formInputFacebook"> {{__('back.Facebook')}}</label>
