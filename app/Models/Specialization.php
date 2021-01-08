@@ -16,7 +16,6 @@ class Specialization extends Model
 
 
     public $timestamps = true;
-    protected $with=['parent'];
     protected $table = 'specializations';
     protected $appends = ['name'];
     protected $dates = ['deleted_at'];

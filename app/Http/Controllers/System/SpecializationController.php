@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\SpecializationRequest;
 use App\Models\Specialization;
+use App\Models\Category;
+
 use Auth;
 
 class SpecializationController extends Controller
