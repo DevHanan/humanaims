@@ -13,7 +13,6 @@ Route::post('/signin', 'AuthController@postRegister')->name('signin');
 Route::post('/resend-code', 'AuthController@ResendCode')->name('resendVerifyCode');
 Route::post('/verify-account', 'AuthController@verifyAccount')->name('Verifyaccount');
 Route::post('/user-membership', 'AuthController@userMembership')->name('userMembership');
-Route::post('ajaxRequest', 'FrontController@ajaxRequest')->name('ajaxRequest');
  Route::get('logout','AuthController@logout')->name('siteLogout');
 	 Route::get('lang-ar', function () {
         session()->put('lang', 'ar');
@@ -46,19 +45,23 @@ Route::get('/doctors','FrontController@listDoctors');
 Route::get('/users', 'FrontController@listPatients');
 Route::get('/home', 'FrontController@home')->name('home');
 Route::post('/subject/store', 'FrontController@storeSubject')->name('subject.store');
+Route::post('/share-subject', 'FrontController@shareSubject')->name('subject.share');
 Route::post('favourite-unfavourite-subj', 'FrontController@favouriteToggle')->name('favunfavsubj');
+Route::post('follow-unfollow', 'FrontController@followToggole')->name('followunfollow');
+
 Route::post('subject-increment-view','FrontController@SubjectView');
 // Like Or Dislike
-Route::post('save-likedislike','FrontController@save_likedislike');
+Route::post('like_subject','FrontController@likeSubject');
+Route::post('dislike_subject','FrontController@disLikeSubject');
 
 Route::get('/message', function () {
     return view('website.messages');
 });
-Route::get('/profile', function () {
-    return view('website.profile');
-});
+Route::get('/profile', 'FrontController@profile');
+
 Route::post('edit-profile','AuthController@profile');
 Route::post('edit-password','AuthController@changePassword');
+Route::post('comment','FrontController@comment');
 
 /**
  * -----------------------------------------------------------------

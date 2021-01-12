@@ -16,18 +16,35 @@ use App\Models\UserFollow;
 use App\Models\Favorite;
 use App\Models\SubjectView;
 use App\Models\LikeDislike;
+use App\Models\Comment;
 
 use Auth;
 use DB;
 class FrontController extends Controller
 {
 
-  // public function notifications()
-  //   {
-  //       return auth()->user()->unreadNotifications()->limit(5)->get()->toArray();
-  //   }
+
+public function comment(Request $request){
+       $request->merge(['member_id'=>Auth::id()]);
+        if(isset($request->parent_id))
+          $request->merge(['parent_id'=>$request->parent_id]);
+        Comment::create($request->all());
+                        toast(__('front.Cooment added Successfully'),'success');
+                        return redirect()->back();
+
+
+}
+
     public function home(){
-        return view('website.home');
+      $subjects = Subject::where('member_id','!=',Auth::id())->latest()->get();
+        return view('website.home',compact('subjects'));
+    }
+
+    public function profile(){
+            $subjects = Subject::where('member_id','=',Auth::id())->latest()->get();
+                    return view('website.profile',compact('subjects'));
+
+
     }
 
     public function listDoctors(Request $request){
@@ -41,11 +58,24 @@ class FrontController extends Controller
     }
 
 
-        public function ajaxRequest(Request $request){
+        public function followToggole(Request $request){
        $user = Member::find($request->user_id) ;
-       if(auth()->guard('member')->user()->isFollowing($user))
        auth()->guard('member')->user()->toggleFollow($user);
        return response()->json(['success'=>'success']);
+
+    }
+    public function shareSubject(Request $request){
+        $is_shared = Subject::where('id',$request->subject_id)->where('member_id',Auth::id())->where('shared',1)->get();
+        if(count($is_shared) == 0){
+          $shared_subject = Subject::find($request->subject_id)->replicate();
+          $shared_subject->member_id= Auth::id();
+          $shared_subject->shared=1;
+          $shared_subject->save();
+        }
+         $data = [
+            'msg' => 'share success',
+          ];
+            return response()->json($data);
 
     }
 
@@ -64,7 +94,7 @@ class FrontController extends Controller
             $subject->save();
         }
                 toast(__('front.Subject added Successfully'),'success');
-                return redirect()->back();
+                return redirect('/profile');
 
     }
 
@@ -76,36 +106,42 @@ class FrontController extends Controller
     }
 
     public function favouriteToggle(Request $request){
-
             $subject = Subject::find($request->subject_id);
             $subject->toggleFavorite(Auth::id());
-             if(auth()->id() != $subject->member_id)
-               $subject->member->notify(new LikeSubjectToOwnerNotify($subject));
+             // if(auth()->id() != $subject->member_id)
+             //   $subject->member->notify(new LikeSubjectToOwnerNotify($subject));
 
             return response()->json(['success'=>'success']);
     }
 
 
-        function save_likedislike(Request $request){
-           $request->merge(['member_id'=>Auth::id()]);
-           $subject = Subject::find($request->subject_id);
-        if($request->type=='like'){
-            $request->merge(['like'=>1]);
-          LikeDislike::where(['subject_id'=>$request->subject_id , 'member_id'=>Auth::id(),'dislike'=>1])->delete();
-        }else{
-            $request->merge(['dislike'=>1]);
-            LikeDislike::where(['subject_id'=>$request->subject_id , 'member_id'=>Auth::id(),'like'=>1])->delete();
-        }
-       $obj =  LikeDislike::create($request->all());
-       // if(auth()->id != $subject->member_id){
-                   $subject->member->notify(new LikeSubjectToOwnerNotify($obj));
-         // }
+        function likeSubject(Request $request){
+           $request->merge(['member_id'=>Auth::id() ,'like'=>1]);
+           $check = LikeDislike::where('member_id',Auth::id())->where('subject_id',$request->subject_id)->where('like',1)->first();
+           if($check)
+              $check->delete();
+            else
+            LikeDislike::create($request->all());
+          $data = [
+            'msg' => 'success',
+            'likes'  => Subject::find($request->subject_id)->likes()
+          ];
+            return response()->json($data);
 
-        return response()->json(['success'=>'success']);
+    }
 
-
-       
-
+    function disLikeSubject(Request $request){
+             $request->merge(['member_id'=>Auth::id() ,'dislike'=>1]);
+           $check = LikeDislike::where('member_id',Auth::id())->where('subject_id',$request->subject_id)->where('dislike',1)->first();
+           if($check)
+              $check->delete();
+            else
+            LikeDislike::create($request->all());
+           $data = [
+            'msg' => 'success',
+            'dislikes'  => Subject::find($request->subject_id)->dislikes()
+          ];
+            return response()->json($data);
     }
 
     /*Comments */

@@ -1,85 +1,43 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
-use Laravelista\Comments\Events\CommentCreated;
-use Laravelista\Comments\Events\CommentUpdated;
-use Laravelista\Comments\Events\CommentDeleted;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Config;
-
+use App;
 class Comment extends Model
 {
-	use SoftDeletes;
+    protected $table = 'comments';
+    public $timestamps = true;
 
-    /**
-     * The relations to eager load on every query.
-     *
-     * @var array
-     */
-    protected $with = [
-        'commenter'
-    ];
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'comment', 'approved'
+         'comment', 'subject_id','member_id','parent_id'
     ];
+    protected $appends = ['readableDate'];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'approved' => 'boolean'
-    ];
+     public function getreadableDateAttribute(){
+       
+            return $this->created_at->diffForHumans();
 
-    /**
-     * The event map for the model.
-     *
-     * @var array
-     */
-    protected $dispatchesEvents = [
-        'created' => CommentCreated::class,
-        'updated' => CommentUpdated::class,
-        'deleted' => CommentDeleted::class,
-    ];
-
-    /**
-     * The user who posted the comment.
-     */
-    public function commenter()
-    {
-        return $this->morphTo();
     }
 
-    /**
-     * The model that was commented upon.
-     */
-    public function commentable()
+    public function subject()
     {
-        return $this->morphTo();
+        return $this->belongsTo(Subject::class);
     }
 
-    /**
-     * Returns all comments that this comment is the parent of.
-     */
-    public function children()
+       public function member()
     {
-        return $this->hasMany(Config::get('comments.model'), 'child_id');
+        return $this->belongsTo(Member::class);
     }
 
-    /**
-     * Returns the comment to which this comment belongs to.
-     */
     public function parent()
-    {
-        return $this->belongsTo(Config::get('comments.model'), 'child_id');
-    }
+{
+    return $this->belongsTo('App\Models\Comment', 'parent_id');
 }
+
+public function replies()
+{
+    return $this->hasMany('App\Models\Comment', 'parent_id', 'id');
+}
+
+}
+

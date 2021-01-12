@@ -14,10 +14,25 @@
  -->
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
     <script src="{{ asset('/vendor/laravelLikeComment/js/script.js') }}" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 
 <script type="text/javascript">
-  $('document').ready(function() {     
+  $('document').ready(function() {  
 
+     $("#txtMessage").on( "keypress", function(event) {
+    if (event.which == 13 && !event.shiftKey) {
+        event.preventDefault();
+        $("#commentMessage").submit();
+    }
+    });
+
+     $('#replaytxtMessage').on( "keypress", function(event) {
+    if (event.which == 13 && !event.shiftKey) {
+        event.preventDefault();
+        $("#replayMessage").submit();
+    }
+    });
 
     $.ajaxSetup({
 
@@ -32,7 +47,7 @@
 
     $('.action-follow').click(function(){  
 
-        var user_id = $(this).data('id');
+        var user_id = $(this).data('user');
 
         var cObj = $(this);
 
@@ -43,8 +58,7 @@
 
            type:'POST',
 
-           url:'/ajaxRequest',
-
+           url:'/follow-unfollow',
            data:{user_id:user_id},
 
            success:function(data){
@@ -117,21 +131,21 @@ $('.view-subject').click(function(){
 
     });
 
-$(".subject-likedislike").click(function () {
-       var subject_id = $(this).data('id');
-      var type = $(this).data('type');
-
+$(".subject-like").click(function () {
+        var subject_id = $(this).data('id');
        $.ajax({
 
            type:'POST',
 
-           url:'/save-likedislike',
+           url:'/like_subject',
 
-           data:{subject_id:subject_id,type:type},
+           data:{subject_id:subject_id},
 
            success:function(data){
 
-              console.log(data.success);
+              $("#likeSubject"+ subject_id).text(data.likes);
+              $('#likesubjecticon'+subject_id).toggleClass('active');
+
 
               }
 
@@ -140,7 +154,65 @@ $(".subject-likedislike").click(function () {
         });
 
 
+  $(".subject-dislike").click(function () {
+       var subject_id = $(this).data('subject');
+       $.ajax({
+
+           type:'POST',
+
+           url:'/dislike_subject',
+
+           data:{subject_id:subject_id},
+
+           success:function(data){
+              $("#dislikesubject"+ subject_id).text(data.dislikes);
+              $('#dislikesubjecticon'+subject_id).toggleClass('active');
+              }
+
+           });
+
+        });
+
+$(".subject-fav-toggole").click(function(){
+  var subject_id = $(this).data('id');
+       $.ajax({
+
+           type:'POST',
+
+           url:'/favourite-unfavourite-subj',
+
+           data:{subject_id:subject_id},
+
+           success:function(data){
+              $('#favsubjecticon'+subject_id).toggleClass('active');
+
+           }
+         });
+});
+
+  $(".subject-share").click(function () {
+       var subject_id = $(this).data('id');
+       $.ajax({
+
+           type:'POST',
+
+           url:'/share-subject',
+
+           data:{subject_id:subject_id},
+
+           success:function(data){
+               swal({
+  title: "Sweet!",
+  text: data.msg,
+  width: 300
+});            }
+
+           });
+
+        });
+
 }); 
+
 </script>
 <!-- 
 <link rel="stylesheet" href="{{ mix('css/app.css') }}" />

@@ -13,6 +13,7 @@ use Laravelista\Comments\Commenter;
 use Shetabit\Visitor\Traits\Visitable;
 use Shetabit\Visitor\Traits\Visitor;
 use willvincent\Rateable\Rateable;
+use Auth;
 
 class Member extends Authenticatable 
 {
@@ -28,7 +29,7 @@ class Member extends Authenticatable
     protected $with = ['country','specialization'];
     protected $dates = ['deleted_at'];
     protected $guarded = ['member'];
-    protected $appends = ['followingCount','followersCount','visits','isDoctor'];
+    protected $appends = ['followingCount','followersCount','visits','isDoctor','isFollowed'];
     public $timestamps = true;
     protected $fillable = array('fullname', 'email', 'password','image','country_id','gender',
         'age','type','background','specialization_id','cv');
@@ -56,6 +57,10 @@ class Member extends Authenticatable
             return true;
         else
             return false;
+    }
+
+     public function getIsFollowedAttribute(){
+        return $this->hasMany('App\Models\UserFollow','following_id')->where('follower_id',Auth::id())->count();
     }
 
     public function subjects()

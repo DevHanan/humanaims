@@ -1,5 +1,5 @@
-@inject('markdown', 'Parsedown')
-@php($markdown->setSafeMode(true))
+<!-- @inject('markdown', 'Parsedown')
+@php($markdown->setSafeMode(true)) -->
 
 @if(isset($reply) && $reply === true)
   <div id="comment-{{ $comment->getKey() }}" class="media">
@@ -15,9 +15,9 @@
             @can('reply-to-comment', $comment)
                 <button data-toggle="modal" data-target="#reply-modal-{{ $comment->getKey() }}" class="btn btn-sm btn-link text-uppercase">Reply</button>
             @endcan
-            @can('edit-comment', $comment)
+          <!--   @can('edit-comment', $comment)
                 <button data-toggle="modal" data-target="#comment-modal-{{ $comment->getKey() }}" class="btn btn-sm btn-link text-uppercase">Edit</button>
-            @endcan
+            @endcan -->
             @can('delete-comment', $comment)
                 <a href="{{ route('comments.destroy', $comment->getKey()) }}" onclick="event.preventDefault();document.getElementById('comment-delete-form-{{ $comment->getKey() }}').submit();" class="btn btn-sm btn-link text-danger text-uppercase">Delete</a>
                 <form id="comment-delete-form-{{ $comment->getKey() }}" action="{{ route('comments.destroy', $comment->getKey()) }}" method="POST" style="display: none;">
@@ -28,7 +28,7 @@
         </div>
 
         @can('edit-comment', $comment)
-            <div class="modal fade" id="comment-modal-{{ $comment->getKey() }}" tabindex="-1" role="dialog">
+            <!-- <div class="modal fade" id="comment-modal-{{ $comment->getKey() }}" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <form method="POST" action="{{ route('comments.update', $comment->getKey()) }}">
@@ -54,7 +54,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> -->
         @endcan
 
         @can('reply-to-comment', $comment)

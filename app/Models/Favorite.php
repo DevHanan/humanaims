@@ -27,7 +27,7 @@ class Favorite extends Model
      *
      * @var array
      */
-	protected $fillable = ['member_id'];
+	protected $fillable = ['user_id'];
 
 	/**
      * Define a polymorphic, inverse one-to-one or many relationship.
@@ -41,7 +41,7 @@ class Favorite extends Model
 
      public function member()
     {
-        return $this->belongsTo('App\Models\Member');
+        return $this->belongsTo('App\Models\Member','user_id');
     }
 
 	

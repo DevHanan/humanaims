@@ -61,7 +61,6 @@ return array(
     'App\\Mail\\VerifyMail' => $baseDir . '/app/Mail/VerifyMail.php',
     'App\\Models\\AuditLog' => $baseDir . '/app/Models/AuditLog.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
-    'App\\Models\\Comment' => $baseDir . '/app/Models/Comment.php',
     'App\\Models\\Country' => $baseDir . '/app/Models/Country.php',
     'App\\Models\\Favorite' => $baseDir . '/app/Models/Favorite.php',
     'App\\Models\\File' => $baseDir . '/app/Models/File.php',

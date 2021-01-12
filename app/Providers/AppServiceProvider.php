@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
        
         Schema::defaultStringLength(191);
-        view::share('subjects',App\Models\Subject::where('member_id','!=',Auth::id())->latest()->get());
+        // view::share('subjects',App\Models\Subject::where('member_id','!=',Auth::id())->latest()->get());
         view::share('ownSubjects',App\Models\Subject::where('member_id',Auth::id())->latest()->get());
          view::share('setting',App\Models\Setting::first());
          view::share('pages',App\Models\Page::all());

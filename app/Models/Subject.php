@@ -20,11 +20,11 @@ class Subject extends Model
        use Favoriteable;
     use Commentable;
         protected $dates = ['deleted_at'];
-    protected $fillable = array('body','category_id');
+    protected $fillable = array('body','category_id','member_id','shared');
      protected static $logAttributes = ['body'];
     protected static $logName = 'SubjectsLog';
-    protected $with =['files','category'];
-    protected $appends = ['readableDate','isFavorite','viewCount','isLikable'];
+    protected $with =['files','category','member','comments'];
+    protected $appends = ['readableDate','isFavorite','viewCount','isLikable','isdisLikable'];
 
     public function getreadableDateAttribute(){
        
@@ -34,7 +34,7 @@ class Subject extends Model
     
      public function getIsFavoriteAttribute(){
 
-       return $this->isFavorited();
+        return $this->hasMany('App\Models\Favorite','favoriteable_id')->where(['user_id'=>Auth::id()])->count();
   
         }
 
@@ -59,11 +59,21 @@ public function getIsLikableAttribute(){
   
         }
 
+        public function getIsdisLikableAttribute(){
+        return $this->hasMany('App\Models\LikeDislike','subject_id')->where(['dislike'=>1,'member_id'=>Auth::id()])->count();
+  
+        }
+
+
     public function views()
     {
         return $this->hasMany('App\Models\SubjectView');
     }
 
+public function comments()
+    {
+        return $this->hasMany('App\Models\Comment')->where('parent_id','0');
+    }
 
     public function files()
     {

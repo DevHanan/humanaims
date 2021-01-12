@@ -178,7 +178,6 @@ return [
             ChristianKuri\LaravelFavorite\FavoriteServiceProvider::class,
 \Chatify\ChatifyServiceProvider::class,
     RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-    risul\LaravelLikeComment\LikeCommentServiceProvider::class,
         Shetabit\Visitor\Provider\VisitorServiceProvider::class,
         Nagy\LaravelRating\LaravelRatingServiceProvider::class,
             willvincent\Rateable\RateableServiceProvider::class
