@@ -24,7 +24,7 @@ class Subject extends Model
      protected static $logAttributes = ['body'];
     protected static $logName = 'SubjectsLog';
     protected $with =['files','category','member','comments'];
-    protected $appends = ['readableDate','isFavorite','viewCount','isLikable','isdisLikable'];
+    protected $appends = ['readableDate','isFavorite','viewCount','isLikable','isdisLikable','commentCount'];
 
     public function getreadableDateAttribute(){
        
@@ -91,5 +91,9 @@ public function comments()
     }
 
 
+public function getcommentCountAttribute(){
+       
+            return $this->comments()->count();
 
+    }
 }

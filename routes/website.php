@@ -26,10 +26,12 @@ Route::post('/user-membership', 'AuthController@userMembership')->name('userMemb
 
 Route::group(['middleware'=>['auth:member']], function () {
 
-      Route::any('user/notifications/get', 'NotificationsController@getNotifications');
-    Route::any('user/notifications/read', 'NotificationsController@markAsRead');
-    Route::any('user/notifications/read/{id}', 'NotificationsController@markAsReadAndRedirect');
+    //   Route::any('user/notifications/get', 'NotificationsController@getNotifications');
+    // Route::any('user/notifications/read', 'NotificationsController@markAsRead');
+    // Route::any('user/notifications/read/{id}', 'NotificationsController@markAsReadAndRedirect');
 
+    Route::get('/notifications', 'FrontController@notifications');
+    Route::get('/get-unread-msg','FrontController@getUnreadMsg');
 Route::get('/terms', function () {
     return view('website.terms');
 });
@@ -58,6 +60,7 @@ Route::get('/message', function () {
     return view('website.messages');
 });
 Route::get('/profile', 'FrontController@profile');
+Route::get('/show-profile/{id}', 'FrontController@showProfile');
 
 Route::post('edit-profile','AuthController@profile');
 Route::post('edit-password','AuthController@changePassword');

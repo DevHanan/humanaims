@@ -60,7 +60,7 @@
                       <span><i class="fas fa-comments"></i></span>
                     </div>
                     <div class="name">
-                      <a href="{{url('/profile')}}" class="name">{{$doctor->fullname}}</a>
+                      <a href="{{url('/show-profile/'.$doctor->id)}}" class="name">{{$doctor->fullname}}</a>
                       <p>Adolescence problems</p>
                     </div>
                   </div>

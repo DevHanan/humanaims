@@ -1,5 +1,5 @@
 @extends('website.layouts.app')
-@section('title'){!! __('front.Profile') !!}@endsection
+@section('title'){!! __('front.Show Profile') !!}@endsection
 @section('header') @endsection
 
 @section('contentPage')
@@ -90,8 +90,8 @@
         <div class="profile-cover col-12 p-0">
           <div class="cover_img">
             <div class="overlay"></div>
-             @if(auth()->user()->background)
-            <img class="popupCoverImg" src="{{asset(auth()->user()->background)}}" alt="Profile Cover">
+             @if($member->background)
+            <img class="popupCoverImg" src="{{asset($member->background)}}" alt="Profile Cover">
             @else
              <img class="popupCoverImg" src="{{asset('assets/website/images/profile/cover.jpg')}}" alt="Profile Cover">
             @endif
@@ -103,13 +103,13 @@
             </ul>
           </div>
           <div class="profile_img">
-            @if(auth()->user()->image)
-            <img class="popupProfileImg" src="{{asset(auth()->user()->image)}}" alt="Profile Image">
+            @if($member->image)
+            <img class="popupProfileImg" src="{{asset($member->image)}}" alt="Profile Image">
             @else
             <img class="popupProfileImg" src="{{asset('assets/website/images/David-Beckham.jpg')}}" alt="Profile Image">
             @endif
             <img src="{{asset('assets/website/images/profile/bird-blue-circle.png')}}" alt="Bird Icon">
-            <p>{{ auth()->user()->fullname}}</p>
+            <p>{{ $member->fullname}}</p>
             <button class="edit"><i class="fas fa-camera"></i></button>
             <ul class="edit_menu text-center">
               <li class="edit-img">{!! __('front.Edit') !!} <i class="fas fa-pen-square"></i></li>
@@ -117,16 +117,8 @@
             </ul>
           </div>
           <div class="profile_options col-12 p-0">
-            <ul class="options">
-              <li data-shuffle="diaries" class="active"><i class="fas fa-align-left"></i></li>
-              <li data-shuffle="likes"><i class="fas fa-thumbs-up"></i></i></li>
-              <li data-shuffle="comments"><i class="fas fa-comment-dots"></i></li>
-              <li data-shuffle="favorite"><i class="fas fa-heart"></i></li>
-              <li data-shuffle="follow"><i class="fas fa-user"></i></li>
-            </ul>
-            <form action="#">
-              <input class="main-background white" type="button" value="Edit"  data-key="Edit" id="profile-edit" dir="auto">
-              <input type="hidden" name="profilekey" id="profileKey" value="Edit">
+           <form class="pt-3 pb-3" action="#" style="flex-grow: 0.3">
+              <input class="main-background white d-flex justify-content-center" type="button" value="Follow" id="followProfile" dir="auto">
             </form>
           </div>
         </div>
@@ -153,8 +145,8 @@
                         <div class="col-sm-7 col-9">
                           <div class="imageName">
                             <div class="image">
-                              @if(auth()->user()->image)
-                              <img  src="{{asset(auth()->user()->image)}}">
+                              @if($member->image)
+                              <img  src="{{asset($member->image)}}">
                               @else
                               <img src="{{asset('assets/website/images/David-Beckham.jpg')}}">
                               @endif
@@ -365,199 +357,8 @@ max-height: 40px;"></textarea>
                   </div>
                 </div>
               </div>
-              <div class="likes hidden" id="shuffle-likes">
-                <div class="post-cards">
-                  <div class="container-fluid">
-                    <div class="row">
-                        @foreach($allSubjects as $subject)
-                        @if($subject->isLikable)
-                      <div class="card">
-                        <div class="post-details">
-                          <div class="post_images">
-                            @if(optional($subject->member)->image)
-                              <img  src="{{asset(auth()->user()->image)}}">
-                              @else
-                            <img src="{{asset('assets/website/images/David-Beckham.jpg')}}" alt="Profile Image">
-                            @endif
-                            <img src="{{asset('assets/website/images/profile/bird-blue-circle.png')}}" alt="Bird Icon">
-                          </div>
-                          <div class="date-name">
- <a>{{optional($subject->member)->fullname}}</a>
-                            
-                                                          <p class="date">
-                              <i class="far fa-clock"></i>
-                              <span>{{$subject->readableDate}} </span>
-                            </p>
-                          </div>
-                        </div>
-                        <div class="post-content">
-                          @if($subject->image)
-                          <img  src="{{asset($subject->image)}}">
-                          @else
-                          <img src="{{asset('assets/website/images/profile/gril.jpg')}}" alt="Post Image">
-                          @endif
-                        </div>
-                        <div class="post-icons">
-                          <ul class="right-icons">
-                            <li class="active">
-                              <i class="fas fa-thumbs-up"></i>
-                              <span>{{$subject->likes()}}</span>
-                            </li>
-                            <li>
-                              <i class="fas fa-thumbs-down"></i>
-                              <span>{{$subject->dislikes()}}</span>
-                            </li>
-                            <li>
-                              <i class="openComment fas fa-comment-dots"></i></i>
-                              <span>{{$subject->commentCount}}</span>
-                            </li>
-                          </ul>
-                          <ul class="left-icons">
-                            <li class="m-auto">
-                              <i class="fas fa-share-alt"></i>
-                            </li>
-                            <li>
-                              <i class="fas fa-eye"></i>
-                              <span class="main-color font-weight-bold">{{$subject->viewCount}}</span>
-                            </li>
-                          </ul>
-                        </div>
-                        
-                      </div> 
-                      @endif<!-- Card -->
-                      @endforeach
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="comments-section hidden" id="shuffle-comments">
-                <p class="noActivitiy">There are no comments</p>
-              </div>
-              <div class="favorite hidden" id="shuffle-favorite">
- <div class="post-cards">
-                  <div class="container-fluid">
-                    <div class="row">
-                        @foreach($allSubjects as $subject)
-                        @if($subject->isFavorite)
-                      <div class="card">
-                        <div class="post-details">
-                          <div class="post_images">
-                            @if(optional($subject->member)->image)
-                              <img  src="{{asset(auth()->user()->image)}}">
-                              @else
-                            <img src="{{asset('assets/website/images/David-Beckham.jpg')}}" alt="Profile Image">
-                            @endif
-                            <img src="{{asset('assets/website/images/profile/bird-blue-circle.png')}}" alt="Bird Icon">
-                          </div>
-                          <div class="date-name">
- <a>{{optional($subject->member)->fullname}}</a>
-                            
-                                                          <p class="date">
-                              <i class="far fa-clock"></i>
-                              <span>{{$subject->readableDate}} </span>
-                            </p>
-                          </div>
-                        </div>
-                        <div class="post-content">
-                          @if($subject->image)
-                          <img  src="{{asset($subject->image)}}">
-                          @else
-                          <img src="{{asset('assets/website/images/profile/gril.jpg')}}" alt="Post Image">
-                          @endif
-                        </div>
-                        <div class="post-icons">
-                          <ul class="right-icons">
-                            <li class="active">
-                              <i class="fas fa-thumbs-up"></i>
-                              <span>{{$subject->likes()}}</span>
-                            </li>
-                            <li>
-                              <i class="fas fa-thumbs-down"></i>
-                              <span>{{$subject->dislikes()}}</span>
-                            </li>
-                            <li>
-                              <i class="openComment fas fa-comment-dots"></i></i>
-                              <span>{{$subject->commentCount}}</span>
-                            </li>
-                          </ul>
-                          <ul class="left-icons">
-                            <li class="m-auto">
-                              <i class="fas fa-share-alt"></i>
-                            </li>
-                            <li>
-                              <i class="fas fa-eye"></i>
-                              <span class="main-color font-weight-bold">{{$subject->viewCount}}</span>
-                            </li>
-                          </ul>
-                        </div>
-                        
-                      </div> 
-                      @endif<!-- Card -->
-                      @endforeach
-                    </div>
-                  </div>
-                </div>
-               <!--  <p class="noActivitiy">There are no favourites</p> -->
-              </div>
-              <div class="follow hidden" id="shuffle-follow">
-                <aside class="follow-bar mb-3">
-                  <ul class="follow-tab">
-                    <li class="active" data-tab="followed">{!! __('front.Followed') !!}</li>
-                    <li>|</li>
-                    <li data-tab="followers">{!! __('front.Followers') !!}</li>
-                  </ul>
-                  <ul class="follow-numbers">
-                    <li class="d-sm-block d-none" id="tabName">{!! __('front.Followed') !!}</li>
-                    <li>  @if(Auth::guard('member')->check())
-                      {{Auth::guard('member')->user()->followingCount }}
-                     
-                      @endif</li>
-                  </ul>
-                </aside>
-                <div class="followCards">
-                  <div class="followed" id="tab-followed">
-                    <div class="row">
-                        @foreach(auth()->user()->followings as $user )
-                      <div class="col-md-6 col-lg-4">
-                        <div class="user-card">
-                          <figure>
-                            <img src="{{asset('assets/website/images/profile/cover-2.jpg')}}" alt="User Profile Cover">
-                            <figcaption><img src="{{asset('assets/website/images/profile/girl-2.jpg')}}" alt="User Profile Image"></figcaption>
-                          </figure>
-                          <div class="info">
-                            <h4 class="text-center mt-4">{{$user->fullname}}</h4>
-                            <form class="mt-4" action="#">
-                              <a href="{{url('/show-profile/'. $user->id)}}">Show Profile</a>
-                              <input class="followButton" type="button" value="Unfollow">
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                      @endforeach
-                     
-                    </div>
-                  </div>
-                  <div class="followers hidden" id="tab-followers">
-                    <div class="row">
-                       @foreach(auth()->user()->followers as $user )
-                      <div class="col-md-6 col-lg-4">
-                        <div class="user-card">
-                          <figure>
-                            <img src="{{asset('assets/website/images/profile/cover-2.jpg')}}" alt="User Profile Cover">
-                            <figcaption><img src="{{asset('assets/website/images/profile/girl-2.jpg')}}" alt="User Profile Image"></figcaption>
-                          </figure>
-                          <div class="info">
-                            <h4 class="text-center mt-4">{{$user->fullname}}</h4>
-                            <form class="mt-4" action="#">
-                              <a href="followProfile.html">Show Profile</a>
-                              <input class="followButton" type="button" value="Unfollow">
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                      @endforeach
-                    </div>
-                  </div>
+             
+                
                 </div>
               </div>
             </div>
@@ -576,12 +377,6 @@ max-height: 40px;"></textarea>
   <script type="text/javascript">
     $(document).ready(function() {
 
-    $("#profile-edit").on("click", function () {
-    if ($(this).val() == "Edit") {
-        $("#form_background").submit();
-        setTimeout($("#form_image").submit(),1000);
-    } 
-  });
        
     });
 </script>

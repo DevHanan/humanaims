@@ -18,6 +18,67 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 
 <script type="text/javascript">
+
+
+
+  $(document).ready(function() {
+    // check if there's a logged in user
+    if(Laravel.userId) {
+        $.get('/notifications', function (data) {
+            addNotifications(data, "#notifications");
+        });
+    }
+
+    function addNotifications(newNotifications, target) {
+    notifications = _.concat(notifications, newNotifications);
+    // show only last 5 notifications
+    notifications.slice(0, 5);
+    showNotifications(notifications, target);
+}
+
+function showNotifications(notifications, target) {
+    if(notifications.length) {
+        var htmlElements = notifications.map(function (notification) {
+            return makeNotification(notification);
+        });
+        $(target + 'Menu').html(htmlElements.join(''));
+        $(target).addClass('has-notifications')
+    } else {
+        $(target + 'Menu').html('<li class="dropdown-header">No notifications</li>');
+        $(target).removeClass('has-notifications');
+    }
+}
+
+
+function makeNotification(notification) {
+    var to = routeNotification(notification);
+    var notificationText = makeNotificationText(notification);
+    return '<li><a href="' + to + '">' + notificationText + '</a></li>';
+}
+
+// get the notification route based on it's type
+function routeNotification(notification) {
+    var to = '?read=' + notification.id;
+    if(notification.type === NOTIFICATION_TYPES.follow) {
+        to = 'users' + to;
+    }
+    return '/' + to;
+}
+
+// get the notification text based on it's type
+function makeNotificationText(notification) {
+    var text = '';
+    if(notification.type === NOTIFICATION_TYPES.follow) {
+        const name = notification.data.follower_name;
+        text += '<strong>' + name + '</strong> followed you';
+    }
+    return text;
+}
+});
+
+
+
+
   $('document').ready(function() {  
 
      $("#txtMessage").on( "keypress", function(event) {
@@ -210,6 +271,26 @@ $(".subject-fav-toggole").click(function(){
            });
 
         });
+
+  $('#chat_msg').click(function(){
+    $.ajax({
+
+           type:'GET',
+
+           url:'/get-unread-msg',
+           success:function(data){
+            $('#chat_msg_boy').empty();
+// Parse the returned json data
+//var opts = $.parseJSON(data);//Remove comment if you are using JSON
+
+// Use jQuery's each to iterate over the opts value
+    // You will need to alter the below to get the right values from your data.
+    $('#chat_msg_boy').append(data);
+
+                  }
+
+           });
+  });
 
 }); 
 

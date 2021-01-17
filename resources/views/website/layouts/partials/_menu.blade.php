@@ -1,3 +1,4 @@
+@inject('message','App\Models\Message')
 <div class="myNav">
       <div class="container">
         <div class="row">
@@ -83,44 +84,25 @@
                   <img src="{{asset('assets/website/images/home/docotr-mark-blue.png')}}">
                 </a>
               </li>
-              <li class="chat">
+              <li class="chat" id="chat_msg">
                 <a class="number">
                   <img src="{{asset('assets/website/images/home/chat.png')}}">
-                  <span>{{$not_seen}}</span>
+                  <span>{{$message::where('to_id',Auth::id())->where('seen','0')->count()}}</span>
                 </a>
-                <div class="myDropDown">
+                <div class="myDropDown" id="chat_msg_dropdown">
                   <div class="header">
                     <h5>Message <i class="fas fa-comments"></i></h5>
                     <a href="{{url('/chatify')}}">{!! __('front.Show All') !!}</a>
                   </div>
-                  <div class="body">
+                  <div class="body" id="chat_msg_boy">
                     <div class="chat item notSeenYet">
-                      <div class="row">
-                        <div class="col-md-2 col-4">
-                          <div class="image">
-                            <img src="{{asset('assets/website/images/profile/profile-image.png')}}">
-                            <img class="pos" src="{{asset('assets/website/images/messenger/chat.png')}}">
-                          </div>
-                        </div>
-                        <div class="col-md-6 col-8">
-                          <div class="content">
-                            <a href="profile.html">Mohamed Adel</a>
-                            <a href="massenger.html">Hi there Cane We Talk</a>
-                          </div>
-                        </div>
-                        <div class="col-md-4 col-12">
-                          <div class="time">
-                            <span>1 hour</span>
-                            <i class="far fa-clock"></i>
-                          </div>
-                        </div>
-                      </div>
+                  
                     </div>
                     
                   </div>
                 </div>
               </li>
-                        <li class="notifications">
+            <li class="notifications">
                 <a class="number">
                   <img src="{{asset('assets/website/images/home/notification-bill.png')}}">
                   <span>15</span>
@@ -288,6 +270,7 @@
                   </div>
                 </div>
               </li>
+
                     
             </ul>
           </div>

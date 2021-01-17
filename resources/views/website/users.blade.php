@@ -50,11 +50,8 @@
                       <span><i class="fas fa-comments"></i></span>
                     </div>
                     <div class="name">
-                      <a href="{{url('/profile')}}" class="name">
-                        @if(Auth::guard('member')->check())
-                      {{Auth::guard('member')->user()->fullname}}
-                     
-                      @endif
+                      <a href="{{url('/show-profile/'.$user->id)}}" class="name">
+                        {{ $user->fullname }}
                       </a>
                       <p>Adolescence problems</p>
                     </div>

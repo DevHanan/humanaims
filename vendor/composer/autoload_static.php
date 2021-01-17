@@ -60,10 +60,6 @@ class ComposerStaticInitbdf2435d02f006c10113d70eaed8e5bf
         array (
             'voku\\' => 5,
         ),
-        'r' => 
-        array (
-            'risul\\LaravelLikeComment\\' => 25,
-        ),
         'p' => 
         array (
             'phpseclib\\' => 10,
@@ -282,10 +278,6 @@ class ComposerStaticInitbdf2435d02f006c10113d70eaed8e5bf
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
-        ),
-        'risul\\LaravelLikeComment\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/risul/laravel-like-comment/src',
         ),
         'phpseclib\\' => 
         array (
@@ -975,6 +967,7 @@ class ComposerStaticInitbdf2435d02f006c10113d70eaed8e5bf
         'App\\Mail\\VerifyMail' => __DIR__ . '/../..' . '/app/Mail/VerifyMail.php',
         'App\\Models\\AuditLog' => __DIR__ . '/../..' . '/app/Models/AuditLog.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
+        'App\\Models\\Comment' => __DIR__ . '/../..' . '/app/Models/Comment.php',
         'App\\Models\\Country' => __DIR__ . '/../..' . '/app/Models/Country.php',
         'App\\Models\\Favorite' => __DIR__ . '/../..' . '/app/Models/Favorite.php',
         'App\\Models\\File' => __DIR__ . '/../..' . '/app/Models/File.php',
@@ -21066,13 +21059,6 @@ class ComposerStaticInitbdf2435d02f006c10113d70eaed8e5bf
         'phpseclib\\Net\\SSH2' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Net/SSH2.php',
         'phpseclib\\System\\SSH\\Agent' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
         'phpseclib\\System\\SSH\\Agent\\Identity' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent/Identity.php',
-        'risul\\LaravelLikeComment\\Controllers\\CommentController' => __DIR__ . '/..' . '/risul/laravel-like-comment/src/Controllers/CommentController.php',
-        'risul\\LaravelLikeComment\\Controllers\\LikeController' => __DIR__ . '/..' . '/risul/laravel-like-comment/src/Controllers/LikeController.php',
-        'risul\\LaravelLikeComment\\Facade\\LaravelLikeComment' => __DIR__ . '/..' . '/risul/laravel-like-comment/src/Facade/LaravelLikeComment.php',
-        'risul\\LaravelLikeComment\\LikeCommentServiceProvider' => __DIR__ . '/..' . '/risul/laravel-like-comment/src/LikeCommentServiceProvider.php',
-        'risul\\LaravelLikeComment\\Models\\Comment' => __DIR__ . '/..' . '/risul/laravel-like-comment/src/Models/Comment.php',
-        'risul\\LaravelLikeComment\\Models\\Like' => __DIR__ . '/..' . '/risul/laravel-like-comment/src/Models/Like.php',
-        'risul\\LaravelLikeComment\\Models\\TotalLike' => __DIR__ . '/..' . '/risul/laravel-like-comment/src/Models/TotalLike.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
         'willvincent\\Rateable\\Rateable' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/Rateable.php',
         'willvincent\\Rateable\\RateableServiceProvider' => __DIR__ . '/..' . '/willvincent/laravel-rateable/src/RateableServiceProvider.php',

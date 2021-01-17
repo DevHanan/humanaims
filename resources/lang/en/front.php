@@ -3,6 +3,8 @@
 return array (
   'Home' => 'Home',
   'Sign In' => 'Sign In',
+    'Followed' => 'Followed',
+
   'Email Address' => 'Email Address',
   'Password' => 'Password',
   'Create Account' => 'Create Account',

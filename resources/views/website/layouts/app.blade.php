@@ -15,6 +15,18 @@
     <meta name="author" content="PIXINVENT">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
+
+    <!-- This makes the current user's id available in javascript -->
+    @if(!auth()->guest())
+        <script>
+            window.Laravel.userId = <?php echo auth()->user()->id; ?>
+        </script>
+    @endif
     <title>{{env('APP_NAME')}} | @yield('title')</title>
    <!--  <link rel="apple-touch-icon" href="{{asset('assets/dashboard/resources')}}/app-assets/images/ico/apple-icon-120.png"> -->
 

@@ -8,7 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'willvincent\\Rateable\\' => array($vendorDir . '/willvincent/laravel-rateable/src'),
     'voku\\' => array($vendorDir . '/voku/portable-ascii/src/voku'),
-    'risul\\LaravelLikeComment\\' => array($vendorDir . '/risul/laravel-like-comment/src'),
     'phpseclib\\' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
     'Yandex\\Translate\\' => array($vendorDir . '/yandex/translate-api/src'),

@@ -2,6 +2,7 @@
 
 return array (
   'Home' => 'الصفحة الرئيسية',
+  'Followed' => 'متابعون',
   'Sign In' => 'تسجيل الدخول',
   'Email Address' => 'البريد الإلكترونى',
   'Subject added Successfully'  => 'تم إضافة الموضوع بنجاح',

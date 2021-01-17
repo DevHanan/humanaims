@@ -17,7 +17,9 @@
                       <li>
                         <span>{!! __('front.Follow') !!}</span>
                         <span> 
-                             @if(Auth::guard('member')->check())
+                          @if(isset($member))
+                           {{$member->followingCount }}
+                             @elseif(Auth::guard('member')->check())
                       {{Auth::guard('member')->user()->followingCount }}
                      
                       @endif
@@ -25,7 +27,9 @@
                       <li>
                         <span>{!! __('front.Followers') !!}</span>
                         <span>
-                           @if(Auth::guard('member')->check())
+                          @if(isset($member))
+                           {{$member->followerCount }}
+                           @elseif(Auth::guard('member')->check())
                       {{Auth::guard('member')->user()->followerCount }}
                     
                       @endif

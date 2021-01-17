@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Notifications\LikeSubjectToOwnerNotify;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
+use App\Notifications\MemberFollowed;
 use App\Models\Member;
 use App\Models\Subject;
 use App\Models\UserFollow;
@@ -17,12 +18,48 @@ use App\Models\Favorite;
 use App\Models\SubjectView;
 use App\Models\LikeDislike;
 use App\Models\Comment;
+use App\Models\Message;
 
 use Auth;
 use DB;
 class FrontController extends Controller
 {
 
+  public function getUnreadMsg(){
+    $html = "";
+    // $unread = Message::where('to_id',Auth::id())->where('seen','0')->latest()->get()->unique('from_id');
+        $unread = Message::where('to_id',Auth::id())->where('seen','0')->latest()->get();
+
+    foreach ($unread as $msg) 
+      $html .=  " <div class='chat item notSeenYet'> <div class='row'>  
+    <div class='col-md-2 col-4'>
+                          <div class='image'>
+                            <img src=" . "{{asset('assets/website/images/profile/profile-image.png')}}" . ">
+                            <img class='pos' src=" . "{{asset('assets/website/images/messenger/chat.png')}}" .">
+                          </div>
+                        </div>
+                      <div class='col-md-6 col-8'>
+                          <div class='content'>
+                            <a href='profile.html'>" . $msg->from->fullname . "</a>
+                            <a href='massenger.html'>" . $msg->body . "</a>
+                          </div>
+                        </div>                      
+                        <div class='col-md-4 col-12'>
+                          <div class='time'>
+                            <span>" . $msg->readableDate."</span>
+                            <i class='far fa-clock'></i>
+                          </div>
+                        </div>
+                  
+                      </div></div>";
+    return $html;
+   
+  }
+
+ public function notifications()
+    {
+        return auth()->user()->unreadNotifications()->limit(5)->get()->toArray();
+    }
 
 public function comment(Request $request){
        $request->merge(['member_id'=>Auth::id()]);
@@ -47,6 +84,12 @@ public function comment(Request $request){
 
     }
 
+public function showProfile($id){
+ $subjects = Subject::where('member_id','=',$id)->latest()->get();
+ $member = Member::find($id);
+                    return view('website.show_profile',compact('subjects','member')); 
+}
+
     public function listDoctors(Request $request){
     	  $doctors = Member::where('type','doctor')->withCount(['followings', 'followers'])->latest()->get();
     	  return view('website.doctors',compact('doctors'));
@@ -61,6 +104,10 @@ public function comment(Request $request){
         public function followToggole(Request $request){
        $user = Member::find($request->user_id) ;
        auth()->guard('member')->user()->toggleFollow($user);
+        $follower = auth()->user();
+        if ( ! $follower->isFollowing($request->user_id)) {
+            $user->notify(new MemberFollowed($follower));
+        }
        return response()->json(['success'=>'success']);
 
     }
