@@ -43,6 +43,7 @@ const app = new Vue({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 window._ = require('lodash');
+const _ = require('lodash');
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
 

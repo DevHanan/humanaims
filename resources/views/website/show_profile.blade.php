@@ -136,8 +136,8 @@
               <div class="diaries show" id="shuffle-diaries">
                 <div class="row justify-content-center">
                   <div class="homeContent col-12">
-                           @include('website.layouts.partials._subject_sec')
-                           <div class="posts">
+<!--                            @include('website.layouts.partials._subject_sec')
+ -->                           <div class="posts">
    @foreach($subjects as $subject)
                  <div class="post">
                     <div class="header">

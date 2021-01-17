@@ -79,4 +79,10 @@ class Member extends Authenticatable
         return $this->belongsTo('App\Models\Specialization');
     }
 
+    public function notifications(){
+
+        return $this->morphMany(Notification::class, 'notifiable');
+    }
+    
+
 }

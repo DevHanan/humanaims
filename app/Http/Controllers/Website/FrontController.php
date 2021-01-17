@@ -19,6 +19,7 @@ use App\Models\SubjectView;
 use App\Models\LikeDislike;
 use App\Models\Comment;
 use App\Models\Message;
+use App\Models\Notification;
 
 use Auth;
 use DB;
@@ -58,7 +59,8 @@ class FrontController extends Controller
 
  public function notifications()
     {
-        return auth()->user()->unreadNotifications()->limit(5)->get()->toArray();
+        $notifications = auth()->user()->notifications()->get();
+        $notification_count = $notifications->where('is_read',0)->count();
     }
 
 public function comment(Request $request){
@@ -106,7 +108,7 @@ public function showProfile($id){
        auth()->guard('member')->user()->toggleFollow($user);
         $follower = auth()->user();
         if ( ! $follower->isFollowing($request->user_id)) {
-            $user->notify(new MemberFollowed($follower));
+            Notification::create(['to_id'=>$request->user_id,'from_id'=>Auth::id(),'notifiable_id'=>$request->user_id , 'notifiable_type'=>'member','url'=>'show-profile/'. $request->user_id,'msg_ar'=> ' Follow ' , 'msg_en'=>'follow' ]);
         }
        return response()->json(['success'=>'success']);
 
