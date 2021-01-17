@@ -28,9 +28,9 @@
 
            url:'/notifications',
            success:function(data){
-
-              console.log("success");
-
+              $('#notification_count').text(data.count);
+              $('.notificationbody').empty();
+              $('.notificationbody').html(data.notify);
 
            }
 

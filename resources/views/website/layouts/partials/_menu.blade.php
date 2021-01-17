@@ -1,4 +1,5 @@
 @inject('message','App\Models\Message')
+
 <div class="myNav">
       <div class="container">
         <div class="row">
@@ -105,7 +106,7 @@
             <li class="notifications">
                 <a class="number">
                   <img src="{{asset('assets/website/images/home/notification-bill.png')}}">
-                  <span id="notification_count">15</span>
+                  <span id="notification_count">{{auth()->user()->unReadnotifications()->count() }}</span>
                 </a>
                 <div class="myDropDown">
                   <div class="header">
@@ -113,7 +114,8 @@
                     <a>Show All</a>
                   </div>
                   <div class="body notificationbody">
-                    <div class="notification item ">
+                   @foreach(auth()->user()->unReadnotifications as $notify)
+                    <div class="notification item @if($notify->is_read == 0) notSeenYet @endif">
                       <div class="row">
                         <div class="col-md-2 col-4">
                           <div class="image">
@@ -123,40 +125,19 @@
                         </div>
                         <div class="col-md-6 col-8">
                           <div class="content">
-                            <a href="profile.html">Mohamed Adel</a>
-                            <a>Someone Commented On Your Post</a>
+                            <a href="{{$notify->url}}">{{$notify->from->fullname}}</a>
+                            <a>{{ $notify->from->fullname }} {{ $notify->msg}}</a>
                           </div>
                         </div>
                         <div class="col-md-4 col-12">
                           <div class="time">
-                            <span>Three Seconds Ago</span>
+                            <span>{{ $notify-> readableDate }}</span>
                             <i class="far fa-clock"></i>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="notification item notSeenYet">
-                      <div class="row">
-                        <div class="col-md-2 col-4">
-                          <div class="image">
-                            <img src="{{asset('assets/website/profile/profile-image.png')}}">
-                            <img class="pos" src="{{asset('assets/website/notifications/heart-small.png')}}">
-                          </div>
-                        </div>
-                        <div class="col-md-6 col-8">
-                          <div class="content">
-                            <a href="profile.html">Mohamed Adel</a>
-                            <a>Someone Commented On Your Post</a>
-                          </div>
-                        </div>
-                        <div class="col-md-4 col-12">
-                          <div class="time">
-                            <span>Three Seconds Ago</span>
-                            <i class="far fa-clock"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    @endforeach
                     
                   </div>
                 </div>

@@ -59,8 +59,33 @@ class FrontController extends Controller
 
  public function notifications()
     {
-        $notifications = auth()->user()->notifications()->get();
+      $notify = "";
+        $notifications = auth()->user()->notifications()->latest()->limit(10)->get();
         $notification_count = $notifications->where('is_read',0)->count();
+        foreach ($notifications as $obj) 
+      $notify .=  " <div class='notification item'> <div class='row'>  
+    <div class='col-md-2 col-4'>
+                          <div class='image'>
+                            <img src=" . "{{asset('assets/website/images/profile/profile-image.png')}}" . ">
+                            <img class='pos' src=" . "{{asset('assets/website/images/messenger/chat.png')}}" .">
+                          </div>
+                        </div>
+                      <div class='col-md-6 col-8'>
+                          <div class='content'>
+                            <a href='" .$obj->url ."'>" . $obj->from->fullname . "</a>
+                            <a>" .  $obj->from->fullname . " ".  $obj->msg . "</a>
+                          </div>
+                        </div>                      
+                        <div class='col-md-4 col-12'>
+                          <div class='time'>
+                            <span>" . $obj->readableDate."</span>
+                            <i class='far fa-clock'></i>
+                          </div>
+                        </div>
+                  
+                      </div></div>";
+                      $data = ['notify'=>$notify , 'count'=>$notification_count];
+    return $data;
     }
 
 public function comment(Request $request){
@@ -108,7 +133,7 @@ public function showProfile($id){
        auth()->guard('member')->user()->toggleFollow($user);
         $follower = auth()->user();
         if ( ! $follower->isFollowing($request->user_id)) {
-            Notification::create(['to_id'=>$request->user_id,'from_id'=>Auth::id(),'notifiable_id'=>$request->user_id , 'notifiable_type'=>'member','url'=>'show-profile/'. $request->user_id,'msg_ar'=> ' Follow ' , 'msg_en'=>'follow' ]);
+            Notification::create(['to_id'=>$request->user_id,'from_id'=>Auth::id(),'notifiable_id'=>$request->user_id , 'notifiable_type'=>'member','url'=>'show-profile/'. $request->user_id,'msg_ar'=> auth()->user()->fullname .' rhم بمتابعتك ' , 'msg_en'=> auth()->user()->fullname .' Follow You' ]);
         }
        return response()->json(['success'=>'success']);
 

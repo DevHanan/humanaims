@@ -81,7 +81,12 @@ class Member extends Authenticatable
 
     public function notifications(){
 
-        return $this->morphMany(Notification::class, 'notifiable');
+        return $this->hasMany(Notification::class, 'to_id');
+    }
+
+     public function unReadnotifications(){
+
+        return $this->hasMany(Notification::class, 'to_id')->where('is_read',0);
     }
     
 

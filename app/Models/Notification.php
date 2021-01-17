@@ -26,7 +26,7 @@ class Notification extends Model
             return $this->created_at->diffForHumans();
 
     }
-    public function getNameAttribute(){
+    public function getMsgAttribute(){
 
         if(App::getLocale() == 'ar')
             return $this->msg_ar;
