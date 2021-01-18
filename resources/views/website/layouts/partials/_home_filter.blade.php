@@ -1,3 +1,6 @@
+<form method="get" action="{{url('/home')}}" id="home_form">
+  
+
 <div class="fixedFilter">
             <span class="head"> {!! __('front.Filter By') !!} </span>
             <div class="filters">
@@ -6,115 +9,31 @@
                   <span class="name">{!! __('front.All') !!}</span>
                 </a>
               </div>
+              @foreach($parentCategories as $category)
               <div class="filter">
-                <a href="#mental" data-toggle="collapse">
-                  <span class="name">Mental</span>
+                <a href="#{{$category->name}}" data-toggle="collapse">
+                  <span class="name">{{$category->name}}</span>
                   <span class="cheveron">
                     <i class="fas fa-chevron-right"></i>
                   </span>
                 </a>
-                <ul class="collapse" id="mental">
-                  <li>
+                <ul class="collapse" id="{{$category->name}}">
+                    @foreach($category->children as $child)
+                  <li data-id="{{$category->id}}" class="home-filter">
                     <span>
                       <i class="far fa-lightbulb"></i>
                     </span>
-                    <span>Depression</span>
+                    <span>{{$child->name}}</span>
                     <span class="spanOnActive">
                       <i class="fas fa-check"></i>
                     </span>
                   </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Family Problems</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Strees</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>illusion</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Relligion Problems</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Secual Problems</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
+                    @endforeach
                 </ul>
               </div>
-              <div class="filter">
-                <a href="#Physical" data-toggle="collapse">
-                  <span class="name">Physical</span>
-                  <span class="cheveron">
-                    <i class="fas fa-chevron-right"></i>
-                  </span>
-                </a>
-                <ul class="collapse" id="Physical">
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Dental pain</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>surgery</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Dermatologist</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      <i class="far fa-lightbulb"></i>
-                    </span>
-                    <span>Birth Defect</span>
-                    <span class="spanOnActive">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </li>
-                </ul>
-              </div>
+              @endforeach
+            
             </div>
           </div>
+
+          </form>

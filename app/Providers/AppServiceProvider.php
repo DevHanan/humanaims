@@ -45,6 +45,10 @@ class AppServiceProvider extends ServiceProvider
           view::share('notifications',App\Models\Notification::all());
           View::share('not_seen',App\Models\Message::where('to_id',Auth::id())->where('seen','0')->count());
           View::share('messages',App\Models\Message::where('to_id',Auth::id())->orderBy('created_at','desc')->get());
+          view::share('parentCategories',App\Models\Category::where('parent_id','0')->get());
+          view::share('parentSpecialization',App\Models\Specialization::where('parent_id','0')->get());
+
+          
 
 
     }

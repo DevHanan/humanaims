@@ -1,6 +1,7 @@
 <?php
 
 return array (
+  'no_data_found'  => 'لا توجد بيانات للعرض',
   'Home' => 'الصفحة الرئيسية',
   'Followed' => 'متابعون',
   'Sign In' => 'تسجيل الدخول',

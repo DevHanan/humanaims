@@ -20,6 +20,8 @@ use App\Models\LikeDislike;
 use App\Models\Comment;
 use App\Models\Message;
 use App\Models\Notification;
+use App\Models\Category;
+
 
 use Auth;
 use DB;
@@ -99,9 +101,15 @@ public function comment(Request $request){
 
 }
 
-    public function home(){
-      $subjects = Subject::where('member_id','!=',Auth::id())->latest()->get();
-        return view('website.home',compact('subjects'));
+    public function home(Request $request){
+
+      $subjects = Subject::where(function($q)use($request){
+          if($request->category_id)
+            $q->where('category_id',$request->category_id);
+          if($request->text)
+            $q->Where('body', 'like', '%' . $request->text . '%');
+      })->where('member_id','!=',Auth::id())->latest()->get();
+      return view('website.home',compact('subjects'));
     }
 
     public function profile(){
@@ -118,12 +126,20 @@ public function showProfile($id){
 }
 
     public function listDoctors(Request $request){
-    	  $doctors = Member::where('type','doctor')->withCount(['followings', 'followers'])->latest()->get();
+    	  $doctors = Member::where(function($q)use($request){
+          if($request->specialization_id)
+            $q->where('specialization_id',$request->specialization_id);
+          if($request->search)
+            $q->Where('fullname', 'like', '%' . $request->search . '%');
+      })->where('type','doctor')->withCount(['followings', 'followers'])->latest()->get();
     	  return view('website.doctors',compact('doctors'));
     }
 
      public function listPatients(Request $request){
-    	  $users = Member::where('type','member')->withCount(['followings', 'followers'])->latest()->get();
+    	  $users = Member::where(function($q)use($request){
+          if($request->search)
+            $q->Where('fullname', 'like', '%' . $request->search . '%');
+      })->where('type','member')->withCount(['followings', 'followers'])->latest()->get();
     	  return view('website.users',compact('users'));
     }
 
@@ -221,4 +237,11 @@ public function showProfile($id){
     /*Comments */
      
     /* End Comments */
+    public function rate(Request $request){
+      $member = Member::find($request->member_id);
+      $member->rateOnce($request->rate);
+                      toast(__('front.Rating added Successfully'),'success');
+
+      return redirect()->back();
+    }
 }

@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('name_en');
             $table->string('name_ar');
+            $table->integer('parent_id');
             $table->timestamps();
             $table->softDeletes();
 

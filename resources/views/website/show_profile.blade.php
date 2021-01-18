@@ -116,8 +116,8 @@
               <li class="imageView">{!! __('front.View') !!} <i class="fas fa-images"></i></li>
             </ul>
           </div>
-          <div class="profile_options col-12 p-0">
-           <form class="pt-3 pb-3" action="#" style="flex-grow: 0.3">
+          <div class="profile_options col-12 p-0 justify-content-end">
+            <form class="pt-3 pb-3" action="#" style="flex-grow: 0.3">
               <input class="main-background white d-flex justify-content-center" type="button" value="Follow" id="followProfile" dir="auto">
             </form>
           </div>

@@ -29,7 +29,7 @@ class Member extends Authenticatable
     protected $with = ['country','specialization'];
     protected $dates = ['deleted_at'];
     protected $guarded = ['member'];
-    protected $appends = ['followingCount','followersCount','visits','isDoctor','isFollowed'];
+    protected $appends = ['followingCount','followersCount','visits','isDoctor','isFollowed','isRate'];
     public $timestamps = true;
     protected $fillable = array('fullname', 'email', 'password','image','country_id','gender',
         'age','type','background','specialization_id','cv');
@@ -63,6 +63,10 @@ class Member extends Authenticatable
         return $this->hasMany('App\Models\UserFollow','following_id')->where('follower_id',Auth::id())->count();
     }
 
+ public function getIsRateAttribute(){
+    return $this->hasMany(Rate::class,'rateable_id')->where('user_id',Auth::id())->first();
+    
+    }
     public function subjects()
     {
         return $this->hasMany('App\Models\Subject');
@@ -89,5 +93,6 @@ class Member extends Authenticatable
         return $this->hasMany(Notification::class, 'to_id')->where('is_read',0);
     }
     
+   
 
 }

@@ -29,8 +29,12 @@ class Specialization extends Model
         return $this->getLocaleValue($this, 'name');
     }
 
-    function parent(){
-        return $this->belongsTo(Specialization::class, 'parent_id');
+     function parent(){
+        return $this->belongsTo(Specialization::class, 'parent_id')->where('parent_id',0);
+    }
+
+     function children(){
+        return $this->hasMany(self::class,'parent_id','id');
     }
 
 

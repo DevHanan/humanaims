@@ -40,6 +40,22 @@
       });
  
 
+$('document').ready(function(){
+
+  $('.home-filter').click(function(){
+      var category_id = $(this).data('id');
+        $('#home_form').append("<input type='hidden' name='category_id'  value='" + category_id + "' />");    
+        $('#home_form').submit();
+});
+
+  $('.doctor-filter').click(function(){
+      var specialization_id = $(this).data('id');
+        $('#doctor-form').append("<input type='hidden' name='specialization_id'  value='" + specialization_id + "' />");    
+        $('#doctor-form').submit();
+});
+
+});
+
   $('document').ready(function() {  
 
      $("#txtMessage").on( "keypress", function(event) {
@@ -126,6 +142,27 @@
            });
 
         });
+
+    $('.rate_element').click(function(){
+
+      var member_id = $(this).data('id');
+      var rate = $(this).data('rate');
+       $.ajax({
+
+           type:'POST',
+
+           url:'/rate',
+
+           data:{member_id:member_id , rate:rate},
+
+           success:function(data){
+
+              console.log(data.success);
+
+              }
+
+           });
+    });
    
 $('.view-subject').click(function(){  
 

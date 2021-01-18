@@ -157,4 +157,5 @@ return array (
   'Switch theme' => 'Switch theme',
   'Most Visited Subjects' => 'Most Visited Subjects',
   'No Data Found' => 'No Data Found',
+  'Main Category' => 'Main Category',
 );

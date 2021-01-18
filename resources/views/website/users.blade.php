@@ -28,10 +28,10 @@
         </div>
         <div class="col-lg-9 toggle">
           <div class="doctors">
-            <form>
+            <form method="get" action="{{url('/users')}}">
               <div class="search">
                 <button><i class="fas fa-search"></i></button>
-                <input type="search" placeholder="Search...">
+                <input type="search" placeholder="Search..." name="search">
               </div>
             </form>
             <div class="row">

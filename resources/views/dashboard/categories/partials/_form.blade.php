@@ -15,6 +15,12 @@
     {{input_error($errors,'name_en')}}
 </div>
 
+<div class="form-group  col-md-12">
+    <label for="formInputCategory"> {{__('back.Main Category')}} </label>
+    {{ Form::select('parent_id', $categories, $category->parent_id?? $category->parent_id?? null,['class'=>'select2 ',disable_on_show(),'autocomplete'=>"off" , 'placeholder'=>'Please Select']) }}
+    {{input_error($errors,'parent_id')}}
+</div>
+
 
 
 

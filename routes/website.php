@@ -65,6 +65,7 @@ Route::get('/show-profile/{id}', 'FrontController@showProfile');
 Route::post('edit-profile','AuthController@profile');
 Route::post('edit-password','AuthController@changePassword');
 Route::post('comment','FrontController@comment');
+Route::post('rate', 'FrontController@rate')->name('rate');
 
 /**
  * -----------------------------------------------------------------

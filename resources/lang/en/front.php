@@ -1,6 +1,7 @@
 <?php
 
 return array (
+  'no_data_found' => 'No data found',
   'Home' => 'Home',
   'Sign In' => 'Sign In',
     'Followed' => 'Followed',

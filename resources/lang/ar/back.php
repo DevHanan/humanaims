@@ -157,4 +157,5 @@ return array (
   'Switch theme' => 'تغير الثيم',
   'Most Visited Subjects' => 'الموضوعات اﻷكثر مشاهدة',
   'No Data Found' => 'لا توجد بيانات للعرض',
+  'Main Category' => 'التصنيف اﻷساسى',
 );

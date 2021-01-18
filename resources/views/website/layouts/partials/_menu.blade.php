@@ -147,10 +147,10 @@
             </ul>
           </div>
           <div class="col-md-3 col-5 three">
-            <form>
+            <form method="grt"  action="{{url('/home')}}">
               <div class="search">
-                <button><i class="fas fa-search"></i></button>
-                <input type="search" placeholder="{!! __('front.Search')!!}">
+                <button type="submit"><i class="fas fa-search"></i></button>
+                <input type="search" placeholder="{!! __('front.Search')!!}" name="text">
               </div>
             </form>
           </div>
