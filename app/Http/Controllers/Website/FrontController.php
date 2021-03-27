@@ -68,8 +68,12 @@ class FrontController extends Controller
       $notify .=  " <div class='notification item'> <div class='row'>  
     <div class='col-md-2 col-4'>
                           <div class='image'>
-                            <img src=" . "{{asset('assets/website/images/profile/profile-image.png')}}" . ">
-                            <img class='pos' src=" . "{{asset('assets/website/images/messenger/chat.png')}}" .">
+                            <img src=" .
+                            
+                             "{{asset('".$obj->from->image ."')}}"
+                            
+                              . ">
+                            <img class='pos' src=" . "{{asset('assets/website/images/notifications/heart-small.png')}}" .">
                           </div>
                         </div>
                       <div class='col-md-6 col-8'>
@@ -87,6 +91,7 @@ class FrontController extends Controller
                   
                       </div></div>";
                       $data = ['notify'=>$notify , 'count'=>$notification_count];
+                      return $notifications;
     return $data;
     }
 

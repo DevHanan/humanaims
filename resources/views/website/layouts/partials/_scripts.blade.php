@@ -290,6 +290,23 @@ $(".subject-fav-toggole").click(function(){
            });
   });
 
+
+ var btn_click = 0;
+$('.btn-edit').click(function(e){
+btn_click = btn_click + 1;
+   if(btn_click % 2 == 0){
+    $('#edit_member').submit();
+   }
+});
+
+ var pass_click = 0;
+$('.btn-edit-pass').click(function(e){
+btn_click = btn_click + 1;
+   if(btn_click % 2 == 0){
+    $('#change_pass').submit();
+   }
+});
+
 }); 
 
 </script>

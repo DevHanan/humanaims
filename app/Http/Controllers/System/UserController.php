@@ -30,13 +30,14 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+
         $users = User::where(function ($q) use($request){
-//            if ($request->has('name') && $request->name !='' && $request->name != null){
-//                $q->where('name', 'like', '%' . $request->name . '%');
+           if ($request->has('type') && $request->type !='' && $request->type != null){
+                $q->where('type',  $request->type);
 //                $q->orWhere('email', 'like', '%' . $request->name . '%');
 //                $q->orWhere('phone', 'like', '%' . $request->name . '%');
-//            }
-//
+           }
+
 
 
         })->with('roles')->get();

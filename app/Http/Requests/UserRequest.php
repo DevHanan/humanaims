@@ -26,8 +26,8 @@ class UserRequest extends FormRequest
         return [
             'name' => 'required|string',
 //            'username' => 'required|string',
-//            'email' => 'required|email|unique:users,email,'.$this->user.',id,deleted_at,NULL',
-            'email' => 'required|email|unique:users,email,'.$this->user,
+          'email' => 'required|email|unique:users,email,'.$this->user.',id,deleted_at,NULL',
+            // 'email' => 'required|email|unique:users,email,'.$this->user,
 //            'phone' => 'required|numeric|digits_between:10,25|unique:users,id,'.$this->user,
             'password' => 'nullable|required_without:_method|confirmed',
 //            'role' =>'nullable',

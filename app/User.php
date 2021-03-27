@@ -3,6 +3,9 @@
 namespace App;
 
 use App\Models\Role;
+use App\Models\Region;
+use App\Models\Line;
+use App\Models\Customer;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -18,13 +21,17 @@ class User extends Authenticatable
     use LogsActivity;
     use HasRoles;
 
+    const TYPE_SALE='sale';
+    const TYPE_DISTRIB='distrib';
+    const TYPE_USER='user';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'default_theme',
+        'name', 'email', 'password', 'default_theme','type','user_id','code'
     ];
 
         protected static $logAttributes = ['name', 'email','default_theme'];
@@ -38,7 +45,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token','code'
     ];
 
     /**
@@ -49,17 +56,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    protected $with = ['country'];
-
-    public function country(){
-        return $this->belongsTo('App\Models\Country');
-    }
-
+    
     
     public function logs(){
 
         return $this->morphOne(AuditLog::class, 'loggable', '   subject_type ', '   subject_id');
     }
 
+
+public function regions(){
+        return $this->belongsToMany(Region::class);
+    }
+
+public function lines(){
+        return $this->belongsToMany(Line::class);
+    }
+
+  function distributer(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+  
     
 }

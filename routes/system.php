@@ -25,20 +25,30 @@ Route::group(['middleware'=>['auth','language']], function(){
 
     Route::get('switch-theme', 'UserController@switchTheme')->name('switch-user-theme');
 
-        Route::resource('specializations', 'SpecializationController');
-        Route::resource('countries', 'CountryController');
-                Route::resource('categories', 'CategoryController');
+        Route::resource('regions', 'RegionController');
+        Route::resource('sliders', 'SliderController');
+        Route::resource('lines', 'TrafficLineController');
+        Route::resource('categories', 'CategoryController');
+        Route::resource('components', 'ComponentController');
         Route::get('setting', 'SettingController@view');
         Route::post('setting', 'SettingController@update');
                 Route::resource('doctors', 'DoctorController');
-                                Route::resource('patients', 'PatientController');
-                                 Route::resource('subjects', 'SubjectController');
+
+                                 Route::resource('products', 'ProductController');
                                 Route::resource('logs', 'AuditLogsController');
   Route::resource('users', 'UserController');
+Route::resource('distributers','DistributorController');
+Route::resource('sales','SaleController');
     Route::resource('roles', 'RoleController');
     Route::resource('pages', 'PageController');
+    Route::resource('points', 'PointController');
     Route::resource('permissions', 'PermissionController');
   Route::resource('visits','VisitorController');
+  Route::resource('contacts','ContactController');
+  Route::resource('contacttypes','ContactMsgTypeController');
+  Route::resource('bills','BillController');
+  Route::resource('customers','CustomerController');
+    Route::get('bills/pdf/{id}', 'BillController@pdf')->name('bills.pdf');
 
     Route::post('customer-create-ajax', 'CustomerController@createAjax')->name('customer-create-ajax');
 

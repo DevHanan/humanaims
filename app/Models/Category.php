@@ -3,38 +3,32 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Activitylog\Traits\LogsActivity;
-use App\Traits\LocalizedTrait;
-
 use App;
 class Category extends Model
 {
-    use SoftDeletes,LogsActivity ,LocalizedTrait;
+    //use SoftDeletes;
 
     protected $table = 'categories';
     public $timestamps = true;
-    protected $appends = ['name'];
-    protected $with = ['children'];
+     protected $appends = ['name'];
 
     protected $fillable = [
-         'name_ar', 'name_en','parent_id'
+         'name_ar', 'name_en'
     ];
 
-    protected static $logAttributes = ['name_ar', 'name_en'];
-    protected static $logName = 'CoategoriesLog';
 
-      public function getnameAttribute()
+    public function getNameAttribute(){
+
+        if(App::getLocale() == 'ar')
+            return $this->name_ar;
+        else
+            return $this->name_en;
+
+    }
+
+    public function products()
     {
-        return $this->getLocaleValue($this, 'name');
+        return $this->hasMany(Product::class);
     }
-
-     function parent(){
-        return $this->belongsTo(Category::class, 'parent_id')->where('parent_id',0);
-    }
-
-     function children(){
-        return $this->hasMany(self::class,'parent_id','id');
-    }
-
 }
 

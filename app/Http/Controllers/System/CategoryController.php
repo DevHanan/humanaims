@@ -24,6 +24,7 @@ class CategoryController extends Controller
     public function index()
     {
             $categories = Category::latest()->get();
+
             return view('dashboard.categories.index', compact('categories'));
     }
 
@@ -62,8 +63,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::findOrFail($id);
-        return view('dashboard.categories.show',compact('category'));
+        $component = Category::findOrFail($id);
+        return view('dashboard.categories.show',compact('component'));
     }
 
     /**
@@ -74,8 +75,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
-        return view('dashboard.categories.edit',compact('category'));
+        $component = Category::findOrFail($id);
+        return view('dashboard.categories.edit',compact('component'));
     }
 
     /**

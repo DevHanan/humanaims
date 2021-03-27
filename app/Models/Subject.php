@@ -23,7 +23,7 @@ class Subject extends Model
     protected $fillable = array('body','category_id','member_id','shared');
      protected static $logAttributes = ['body'];
     protected static $logName = 'SubjectsLog';
-    protected $with =['files','category','member','comments'];
+    protected $with =['files','member','comments'];
     protected $appends = ['readableDate','isFavorite','viewCount','isLikable','isdisLikable','commentCount'];
 
     public function getreadableDateAttribute(){
@@ -80,11 +80,7 @@ public function comments()
         return $this->hasMany('App\Models\File');
     }
 
-     public function category()
-    {
-        return $this->belongsTo('App\Models\Category');
-    }
-
+   
     public function member()
     {
         return $this->belongsTo('App\Models\Member');

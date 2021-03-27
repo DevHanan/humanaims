@@ -26,7 +26,7 @@ class Member extends Authenticatable
 
 
     protected $table = 'members';
-    protected $with = ['country','specialization'];
+
     protected $dates = ['deleted_at'];
     protected $guarded = ['member'];
     protected $appends = ['followingCount','followersCount','visits','isDoctor','isFollowed','isRate'];
@@ -73,15 +73,7 @@ class Member extends Authenticatable
     }
 
 
-    public function country()
-    {
-        return $this->belongsTo('App\Models\Country');
-    }
-
-     public function specialization()
-    {
-        return $this->belongsTo('App\Models\Specialization');
-    }
+     
 
     public function notifications(){
 

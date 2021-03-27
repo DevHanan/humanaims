@@ -1,10 +1,12 @@
 <?php
 
 return array (
+  'Error when try to change password'  => 'Error when try to change password',
   'no_data_found' => 'No data found',
   'Home' => 'Home',
   'Sign In' => 'Sign In',
     'Followed' => 'Followed',
+    'Show Profile' => 'Show Profile',
 
   'Email Address' => 'Email Address',
   'Password' => 'Password',
@@ -104,5 +106,8 @@ return array (
   'Profile' => 'Profile',
   'Login Failed' => 'Login Failed',
   'rr' => 'cc',
-  'Data has been done successfully' => 'Data has been done successfully'
+  'Data has been done successfully' => 'Data has been done successfully',
+    'Drop file here or'  => 'Drop file here or',
+'browse'  => 'browse',
+'here' =>'here'
 );

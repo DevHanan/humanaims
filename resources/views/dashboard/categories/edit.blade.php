@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.app')
-@section('title'){!! __('back.Edit Category') !!}@endsection
+@section('title'){!! __('back.Edit Component') !!}@endsection
 @section('header')@endsection
 @section('breadcrumb')
     @include('dashboard.layouts.partials._breadcrumb',['level'=>'categories'])

@@ -47,11 +47,16 @@
 
 <script src="{{asset('backend-scripts/ajax.js')}}"></script>
 <script src="{{asset('backend-scripts/scripts.js')}}"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link  type="text/css" rel="stylesheet" href="{{asset('assets/dashboard')}}/image-uploader.min.css">
 
+<script src="{{asset('assets/dashboard')}}/image-uploader.min.js"></script>
 <script type="text/javascript">
       
 $(document).ready(function (e) {
  
+
+ $('.input-images').imageUploader();
 
    $("#inputGroupFile01").change(function(event) {  
   RecurFadeIn();

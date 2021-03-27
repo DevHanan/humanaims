@@ -3,24 +3,20 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Activitylog\Traits\LogsActivity;
-
 use App;
 class Country extends Model
 {
     //use SoftDeletes;
-        use SoftDeletes,LogsActivity;
-
 
     protected $table = 'countries';
     public $timestamps = true;
-    protected $appends = ['name'];
+     protected $appends = ['name'];
+
     protected $fillable = [
-        'name_en', 'name_ar'
+        'code_ar', 'name_ar', 'code_en', 'name_en','phone_code'
     ];
 
-    protected static $logAttributes = ['name_ar', 'name_en'];
-    protected static $logName = 'CountriesLog';
+
     public function getNameAttribute(){
 
         if(App::getLocale() == 'ar')
@@ -30,5 +26,8 @@ class Country extends Model
 
     }
 
-    
+    public function states()
+    {
+        return $this->hasMany(State::class);
+    }
 }

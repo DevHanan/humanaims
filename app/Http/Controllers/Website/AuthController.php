@@ -8,15 +8,15 @@ use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
 use App\Models\TempUser;
 use App\Models\Member;
-use App\Mail\VerifyMail;
 use App\Http\Requests\RegisterationRequest;
 use Illuminate\Support\Facades\Mail;
 use Hash;
 use Carbon\Carbon;
 use App\Models\Setting;
 use App\Models\Specialization;
-
+use App\Models\Country;
 use Auth;
+use App\Mail\VerifyMail;
 class AuthController extends Controller
 {
     use AuthenticatesUsers;
@@ -57,6 +57,7 @@ class AuthController extends Controller
             'trail_number'=> 1
 
         ]);
+                  Mail::to($temp)->send(new VerifyMail($temp));
         // Mail::to($temp->email)->send(new VerifyMail($temp));
             toast(__('front.please Check email for verification step'),'success');
            return view('website.auth.verification_code',compact('temp'));
@@ -144,7 +145,10 @@ class AuthController extends Controller
         if($request->email)
             $data->update(['email'=>$request->email]);
         if($request->country_id)
-            $data->update(['country_id'=>$request->country_id]);
+        {   
+            $country = country::where('name_ar',$request->country_id)->orwhere('name_en',$request->country_id)->first();
+            $data->update(['country_id'=>$country->id]);
+        }
         if($request->gender)
             $data->update(['gender'=>$request->gender]);
          if($request->specialization_id){

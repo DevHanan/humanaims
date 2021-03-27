@@ -17,7 +17,7 @@
 
 <div class="form-group  col-md-12">
     <label for="formInputType"> {{__('back.type')}} </label>
-    {{ Form::select('type',['about'=> 'About us' , 'privacy'=> 'privacyPolicy ' ], $page->type?? $page->type?? null,['class'=>'select2 ',disable_on_show(),'autocomplete'=>"off" , 'placeholder'=>'Please Select']) }}
+    {{ Form::select('type',['about'=> 'About us' , 'privacy'=> 'privacyPolicy' ], $page->type?? $page->type?? null,['class'=>'select2 ',disable_on_show(),'autocomplete'=>"off" , 'placeholder'=>'Please Select']) }}
     {{input_error($errors,'type')}}
 </div>
 

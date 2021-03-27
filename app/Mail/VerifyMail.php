@@ -22,15 +22,7 @@ class VerifyMail extends Mailable
         $this->user = $user;
     }
     
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+    
 
     /**
      * Build the message.

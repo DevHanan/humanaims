@@ -1,10 +1,12 @@
 <?php
 
 return array (
+  'Error when try to change password'  => ' خطأ أثناء محاولة تعديل كلمة المرور',
   'no_data_found'  => 'لا توجد بيانات للعرض',
   'Home' => 'الصفحة الرئيسية',
   'Followed' => 'متابعون',
   'Sign In' => 'تسجيل الدخول',
+  'Show Profile'  => 'عرض الصفحة الشخصية',
   'Email Address' => 'البريد الإلكترونى',
   'Subject added Successfully'  => 'تم إضافة الموضوع بنجاح',
   'Drop filre Here Or'   => 'قم بإسقاط الملف هنا أو',
@@ -102,5 +104,8 @@ return array (
   'View' => 'عرض',
   'Profile' => 'حسابى',
   'Login Failed' => 'خطأ أثناء محاولة تسجيل الدخول',
-  'Data has been done successfully'  => 'تم تعديل البيانات بنجاح'
+  'Data has been done successfully'  => 'تم تعديل البيانات بنجاح',
+  'Drop file here or'  => 'قم بإسقاط الملف هنا أو',
+  'browse'  => 'تصفح',
+'here' =>'هنا'
 );

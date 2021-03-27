@@ -12,11 +12,10 @@
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{env('APP_NAME')}} | @yield('title')</title>
+    <title>{{$setting->{'site_name_' . App::getLocale()} }} | @yield('title')</title>
     <link rel="apple-touch-icon" href="{{asset('assets/dashboard/resources')}}/app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/dashboard/resources')}}/app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
-
     @include('dashboard.layouts.partials._styles')
     @yield('header')
 </head>

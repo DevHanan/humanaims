@@ -20,7 +20,7 @@
       $(".settingsInput").prop("disabled", false);
     } else {
       $(this).val("Edit");
-      $(".settingsInput").prop("disabled", true);
+     setInterval(function(){ $(".settingsInput").prop("disabled", true);},4000);
     }
   });
   $(".settings-page.ltr .btn-edit-pass").on("click", function (e) {
@@ -30,12 +30,12 @@
       $(".passSettings").prop("disabled", false);
     } else {
       $(this).val("Edit");
-      $(".passSettings").prop("disabled", true);
+      setInterval(function(){$(".passSettings").prop("disabled", true);},4000);
     }
   });
   $(".settings-page.ltr .btn-cancel").click(function (e) {
     e.preventDefault();
-    $(".settingsInput").prop("disabled", true);
+    setInterval(function(){$(".settingsInput").prop("disabled", true);},4000);
     $(".btn-edit").val("Edit");
   });
 
@@ -47,7 +47,7 @@
       $(".settingsInput").prop("disabled", false);
     } else {
       $(this).val("تعديل");
-      $(".settingsInput").prop("disabled", true);
+      setInterval(function(){$(".settingsInput").prop("disabled", true);},4000);
     }
   });
   $(".settings-page.rtl .btn-edit-pass").on("click", function (e) {
@@ -57,12 +57,12 @@
       $(".passSettings").prop("disabled", false);
     } else {
       $(this).val("تعديل");
-      $(".passSettings").prop("disabled", true);
+      setInterval(function(){$(".passSettings").prop("disabled", true);},4000);
     }
   });
   $(".settings-page.rtl .btn-cancel").click(function (e) {
     e.preventDefault();
-    $(".settingsInput").prop("disabled", true);
+    setInterval(function(){$(".settingsInput").prop("disabled", true);},4000);
     $(".btn-edit").val("تعديل");
   });
   // Adding Upload Media Picture

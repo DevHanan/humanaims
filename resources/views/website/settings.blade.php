@@ -47,7 +47,7 @@
 
         <div class="account-settings-right col-lg-7 col-md-8">
           <div class="forms" id="account-settings">
-            <form action="{{url('edit-profile')}}" method="POST"  class="member-form" enctype="multipart/form-data">
+            <form action="{{url('edit-profile')}}" method="POST"  class="member-form"  id="edit_member">
               @csrf
               <div class="row">
                 <div class="form-input col-lg-12">
@@ -83,12 +83,12 @@
                     </div>
                      
 
-                    <input class="form-control settingsInput" disabled list="country" name="country_id" id="browser">
+                    <input class="form-control settingsInput" disabled list="country" name="country_id" id="browser" value="{{auth()->user()->country->name}}" >
                     <i class="fas fa-chevron-down"></i>
                   </div>
                   <datalist id="country">
                       @foreach($country->all() as $coun)
-                    <option value="{{$coun->id}}"> {{$coun->name}}</option>
+                    <option value="{{$coun->name}}"> {{$coun->name}}</option>
                  
                    @endforeach
         
@@ -125,7 +125,7 @@
               </div>
             </form>
 
-                       <form  class="mt-4" action="{{url('edit-password')}}" method="POST" enctype="multipart/form-data">
+                       <form  class="mt-4" action="{{url('edit-password')}}" method="POST" enctype="multipart/form-data" id="change_pass">
                           @csrf
               <div class="row">
                 <div class="form-input col-lg-12">
@@ -185,13 +185,13 @@
                     <div class="input-icon">
                       <img src="{{asset('assets/website/images//myAccount/user-light.png')}}" alt="User Icon">
                     </div>
-                    <input class="form-control" list="Specializations" name="specialization_id" id="Specialization">
+                    <input class="form-control" list="Specializations" name="specialization_id" id="Specialization" value="{{auth()->user()->specialization->name}}">
                
                     <i class="fas fa-chevron-down"></i>
                   </div>
                   <datalist id="Specializations">
                       @foreach($specialization->all() as $special)
-                    <option  value="{{$special->id}}" @if(Auth::user()->specialization->name == $special->name) selected @endif  label="{{$special->name}}">{{$special->name}}</option>
+                    <option  value="{{$special->name}}"> {{$special->name}} </option>
                     
                       @endforeach
                   </datalist>
@@ -202,7 +202,7 @@
                     <div class="input-icon">
                       <div class="flex-wrapper">
                         <img src="{{asset('assets/website/images/approveAccount/upload.png')}}" alt="User Icon">
-                        <p class="mt-3">Drop file here or <span>browse</span> here</p>
+                        <p class="mt-3">{!! __('front.Drop file here or') !!} <span>{!! __('front.browse') !!}</span> {!! __('front.here') !!}</p>
                       </div>
                     </div>
                     <img src="." alt="Uploaded File" id="image-tag">
@@ -210,6 +210,7 @@
                   </div>
                 </div>
                 
+                <button type="submit">  save </button> 
               </div>
             </form>
           </div>
